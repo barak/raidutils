@@ -467,11 +467,12 @@ SEMAPHORE_T osdCreateSemaphore()
 SEMAPHORE_T osdCreateNamedSemaphore(char *name)
 {
     char temp[MAX_SEM_NAME_LEN];
+    SEMAPHORE_T rtnVal;
 
     strcpy(temp, "/tmp/");
     strcat(temp, name);
 
-    SEMAPHORE_T rtnVal = privateCreateNamedSemaphore(temp, 0);
+    rtnVal = privateCreateNamedSemaphore(temp, 0);
 
     if (Verbose)
         printf("\nosdCreateNamedSemaphore   : Rtn = %x", rtnVal);
@@ -914,11 +915,12 @@ SEMAPHORE_T osdCreateEventSemaphore()
 SEMAPHORE_T osdCreateNamedEventSemaphore(char *name)
 {
     char temp[MAX_SEM_NAME_LEN];
+    SEMAPHORE_T rtnVal;
 
     strcpy(temp, "/tmp/");
     strcat(temp, name);
 
-    SEMAPHORE_T rtnVal = privateCreateNamedSemaphore(temp, 1);
+    rtnVal = privateCreateNamedSemaphore(temp, 1);
 
     if (Verbose)
         printf("\nosdCreateNamedEventSemaphore   : Rtn = %x", rtnVal);
