@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:14  bap
-* Initial revision
+* Revision 1.1.1.1  2004-04-29 10:20:14  bap
+* Imported upstream version 0.0.4. 
 *
 *****************************************************************************/
 
