@@ -1,6 +1,6 @@
 raidutils (0.0.4-3) unstable; urgency=low
 
-  * This kill ITP with different name (closes: #159906)
+  * Alternative ITP, provide alternative name (closes: #159906)
   * Mention dpt_i2o in description (closes: #260544)
   * Typo in raideng help text (closes: #260545)
   
