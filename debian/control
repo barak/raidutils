@@ -9,7 +9,8 @@ Package: raidutils
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Adaptec I2O compliant RAID controller management utilities
- The raidutil programs manage Adaptec I2O-compliant RAID controllers.
- Using them one can create/delete a RAID array, add/remove a hot spare
- drive to/from a RAID array, activate/silence the alarm, and get
- information about the status of the RAID array and disks.
+ The raidutil programs manage I2O-compliant RAID controllers,
+ including in particular some Adaptec RAID controllers.  One can
+ create/delete a RAID array, add/remove a hot spare drive to/from a
+ RAID array, activate/silence the alarm, and get information about the
+ status of the RAID array and disks.
