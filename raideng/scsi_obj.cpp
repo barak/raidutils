@@ -443,7 +443,7 @@ if (bytesLeft >= (infoSize()+sizeof(uLONG))) {
 	// Return this object's manager SCSI ID instead of tag
       basic_P->attachedTo = myMgr_P()->getAddrL();
 	// Reverse the SCSI address bytes
-      reverseBytes(basic_P->attachedTo);
+      reverseBytes((uLONG &)basic_P->attachedTo);
 
    DEBUG(6, PRT_SADDR(basic_P) << "new attachedTo=0x" << hex << \
 	    basic_P->attachedTo << " is set");

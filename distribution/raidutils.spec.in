@@ -43,6 +43,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libraidutil.so.0.0.0
 
 %changelog
+* Mon Jan 24 2005 Markus Lidel <Markus.Lidel@shadowconnect.com>
+- New version for FC3.
+* Wed May 18 2004 Markus Lidel <Markus.Lidel@shadowconnect.com>
+- Compiled with new kernel interface.
 * Wed May 05 2004 Markus Lidel <Markus.Lidel@shadowconnect.com>
 - Changed recognition of I2O pass-thru option availability.
 - Now raidutils use the right headers if using gcc version 3.3.

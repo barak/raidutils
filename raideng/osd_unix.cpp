@@ -2147,9 +2147,17 @@ DPT_RTN_T osdGetCtlrs(uSHORT ioMethod,uSHORT *numCtlrs_P,
                 if(strcmp(HbaDevs[Count].NodeName, "/dev/i2o/ctl"))
                    i = osdSendIoctl(&HbaDevs[Count],DPT_CTRLINFO,DataBuff,&pkt);
 		else {
+		   /*
+		    * For the I2O Linux Driver, spoof the data
+		    */
+		   for(i = 0; i < sizeof(drvrHBAinfo_S); ++i)
+		       ((uCHAR *)DataBuff)[i] = 0;
+		   drvrHBAinfo_S *tmp_P = (drvrHBAinfo_S *)DataBuff;
+		   tmp_P->length = sizeof(drvrHBAinfo_S) - 2;
+		   tmp_P->hbaFlags = FLG_OSD_DMA | FLG_OSD_I2O;
+		   if(HbaDevs[Count].IoAddress != 0xffffffff)
+		       tmp_P->baseAddr = HbaDevs[Count].IoAddress;
 		   i= 0;
-                   HbaInfo_P = (HbaInfo *)DataBuff;
-		   HbaInfo_P->base = UINTPTR_MAX;
 		}
 #else
                i = osdSendIoctl(&HbaDevs[Count],DPT_CTRLINFO,DataBuff,&pkt);

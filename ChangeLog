@@ -1,3 +1,5 @@
+0.0.6 Fixes for gcc 3.4.
+0.0.5 added i2o-dev.h linux header which should fix some compile problems
 0.0.4 changed recognision of I2O pass-thru option availability and fixed header
       includes for gcc 3.3.
 0.0.3 added SPEC file to build a rpm
