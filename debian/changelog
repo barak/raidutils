@@ -4,7 +4,7 @@ raidutils (0.0.4-3) unstable; urgency=low
   * Mention dpt_i2o in description (closes: #260544)
   * Typo in raideng help text (closes: #260545)
   
- --
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 21 Jul 2004 03:41:06 -0600
 
 raidutils (0.0.4-2) unstable; urgency=low
 
