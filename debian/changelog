@@ -1,3 +1,10 @@
+raidutils (0.0.4-5) unstable; urgency=low
+
+  * copy linux 2.6.8 i2o-dev.h to include/linux/i2o-dev.h (closes: #278239)
+  * add autoconf build dependency (closes: #270286)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 16 Jan 2005 01:27:09 +0000
+
 raidutils (0.0.4-4) unstable; urgency=low
 
   * patch for elderly GCC thanks to Anders Henke (closes: #266644)
@@ -9,7 +16,7 @@ raidutils (0.0.4-3) unstable; urgency=low
   * Alternative ITP, provide alternative name (closes: #159906)
   * Mention dpt_i2o in description (closes: #260544)
   * Typo in raideng help text (closes: #260545)
-  
+
  -- Barak A. Pearlmutter <bap@debian.org>  Wed, 21 Jul 2004 03:41:06 -0600
 
 raidutils (0.0.4-2) unstable; urgency=low
