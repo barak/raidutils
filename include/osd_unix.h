@@ -59,7 +59,7 @@
 #define DPT_EngineKey      0x02    /* Message Que and Type for engine         */
 #define DPT_LoggerKey      0x03    /* Message Type For Logger                 */
 #define DPT_CommEngineKey  0x04    /* Message Que Type Created                */
- 
+
 #define MSG_RECEIVE    0x40000000  /* Ored Into Logger PID For Return Msg     */
 
 #define ENGMSG_ECHO        0x00    /* Turnarround Echo Engine Message         */
@@ -68,23 +68,23 @@
 
   /* Message Que Creation Flags */
 
-#define MSG_URD            00400  
-#define MSG_UWR            00200  
-#define MSG_GRD            00040  
-#define MSG_GWR            00020  
-#define MSG_ORD            00004  
-#define MSG_OWR            00002  
+#define MSG_URD            00400
+#define MSG_UWR            00200
+#define MSG_GRD            00040
+#define MSG_GWR            00020
+#define MSG_ORD            00004
+#define MSG_OWR            00002
 #define MSG_ALLRD          00444
 #define MSG_ALLWR          00222
 
   /* Message Que Creation Flags */
 
-#define SHM_URD            00400  
-#define SHM_UWR            00200  
-#define SHM_GRD            00040  
-#define SHM_GWR            00020  
-#define SHM_ORD            00004  
-#define SHM_OWR            00002  
+#define SHM_URD            00400
+#define SHM_UWR            00200
+#define SHM_GRD            00040
+#define SHM_GWR            00020
+#define SHM_ORD            00004
+#define SHM_OWR            00002
 #define SHM_ALLRD          00444
 #define SHM_ALLWR          00222
 
@@ -101,7 +101,7 @@
 #define ExitEngOpenFail          10
 #define ExitDuplicateEngine      11
 
-#define ExitCommAllocFail        12 
+#define ExitCommAllocFail        12
 #define ExitDuplicateCommEng     13
 #define ExitCommConnectFail      14
 
@@ -117,7 +117,7 @@ typedef struct {
 	uCHAR ConfigLength[4];       /* Len in bytes after this field.      */
 	uCHAR EATAsignature[4];
 	uCHAR EATAversion;
-        uCHAR Flags1;                
+        uCHAR Flags1;
 	uCHAR PadLength[2];
 	uCHAR HBA[4];
 	uCHAR CPlength[4];           /* Command Packet Length               */
@@ -127,8 +127,8 @@ typedef struct {
         uCHAR Flags2;
 	uCHAR Reserved0;             /* Reserved Field                       */
         uCHAR Flags3;
-        uCHAR ScsiValues; 
-	uCHAR MaxLUN;                /* Maximun LUN Supported                */ 
+        uCHAR ScsiValues;
+	uCHAR MaxLUN;                /* Maximun LUN Supported                */
         uCHAR Flags4;
 	uCHAR RaidNum;               /* RAID HBA Number For Stripping        */
 	uCHAR Reserved3;             /* Reserved Field                       */
@@ -236,7 +236,7 @@ typedef struct {
 /* Inform driver to reset adapter */
 #define I2ORESETCMD	(('D'<<8)|78)
 
-#else  
+#else
 
   /* Unix Ioctl Command definitions */
 
@@ -360,13 +360,13 @@ typedef struct EATACommandPacket {
 
         uCHAR     HbaTargetID;
         uCHAR     HbaLUN;
- 
+
 #endif  /* _DPT_AIX */
 
         uCHAR    cp_Flags1;          /* Command Flags                       */
 	uCHAR    cp_Req_Len;         /* AutoRequestSense Data length.       */
 	uCHAR    cp_Resv1[3];        /* Reserved Fields                     */
-        uCHAR    cp_Flags2; 
+        uCHAR    cp_Flags2;
         uCHAR    cp_Flags3;
         uCHAR    cp_ScsiAddr;
 	uCHAR    cp_msg0;            /* Identify and Disconnect Message.    */
@@ -390,17 +390,17 @@ typedef struct EATACommandPacket {
 	struct  dpt_sg SG_List[DPT_MAX_DMA_SEGS];
 	union {
 		char *b_scratch;
-		struct scsi_cmd *b_ownerp; 
+		struct scsi_cmd *b_ownerp;
 	      } cc;
 	paddr_t ccb_paddr;
 	uSHORT IOAddress;
-	
+
 #else  /* _DPT_SOLARIS */
 
 	uLONG     TimeOut ;
 	uCHAR     HostStatus;
 	uCHAR     TargetStatus;
-	uCHAR     Retries; 
+	uCHAR     Retries;
 
 #endif  /* _DPT_SOLARIS else */
 
@@ -451,7 +451,7 @@ typedef struct {
 	uCHAR    eataVersion;      /* EATA Version                    */
 	uLONG    cpLength;         /* EATA Command Packet Length      */
 	uLONG    spLength;         /* EATA Status Packet Length       */
-	uCHAR    drqNum;           /* DRQ Index (0,5,6,7)             */ 
+	uCHAR    drqNum;           /* DRQ Index (0,5,6,7)             */
 	uCHAR    flag1;            /* EATA Flags 1 (Byte 9)           */
 	uCHAR    flag2;            /* EATA Flags 2 (Byte 30)          */
 
@@ -462,10 +462,10 @@ typedef struct {
 
 typedef struct {
 
-	uINT     state;            /* Operational state            */ 
-	uCHAR    id[4];            /* Host adapter SCSI id         */ 
-	uINT     vect;             /* Interrupt vector number      */ 
-	uLONG    base;             /* Base I/O address             */ 
+	uINT     state;            /* Operational state            */
+	uCHAR    id[4];            /* Host adapter SCSI id         */
+	uINT     vect;             /* Interrupt vector number      */
+	uLONG    base;             /* Base I/O address             */
 	int      ha_max_jobs;      /* Max number of Active Jobs    */
         uLONG    ha_cacheParams;
 	int      ha_nbus;          /* Number Of Busses on HBA      */
@@ -500,14 +500,14 @@ typedef struct {
 	uCHAR  eataVersion;      /* EATA Version                    */
 	uLONG  cpLength;         /* EATA Command Packet Length      */
 	uLONG  spLength;         /* EATA Status Packet Length       */
-	uCHAR  drqNum;           /* DRQ Index (0,5,6,7)             */ 
+	uCHAR  drqNum;           /* DRQ Index (0,5,6,7)             */
 	uCHAR  eataflag1;        /* EATA Flags 1 (Byte 9)           */
 	uCHAR  eataflag2;        /* EATA Flags 2 (Byte 30)          */
 	uCHAR  maxChannel;       /* Maximum Channel Number          */
 	uCHAR  maxID;            /* Maximum Target ID               */
 	uCHAR  maxLUN;           /* Maximum LUN                     */
 	uCHAR  HbaBusType;       /* HBA Bus Type, EISA, PCI, etc    */
-	uCHAR  RaidNum;          /* Host Adapter RAID Number        */  
+	uCHAR  RaidNum;          /* Host Adapter RAID Number        */
 
 	       } HbaInfo;
 
@@ -519,7 +519,7 @@ typedef struct {
 
 /*
  * DPT Host Adapter config information structure - this structure contains
- * configuration information about an adapter.  It is imbedded into the 
+ * configuration information about an adapter.  It is imbedded into the
  * dpt_ctl structure.
  */
 
@@ -554,7 +554,7 @@ typedef struct dpt_cfg {
 /*
  * DPT statistics structure definitions
  */
-typedef struct IO_SIZE_STATS 
+typedef struct IO_SIZE_STATS
 {
   uLONG TotalIoCount;
   uLONG IoCountRead;
@@ -566,7 +566,7 @@ typedef struct IO_SIZE_STATS
 
 } IO_SIZE_STATS_T, *pIO_SIZE_STATS_T;
 
-typedef struct STATS_DATA 
+typedef struct STATS_DATA
 {
   uLONG TotalIoCount;
   uLONG TotalUnCachedIoCount;
