@@ -1,0 +1,53 @@
+Summary: Utilities to manage Adaptec I2O compliant RAID controllers
+Name: raidutils
+Version: @VERSION@
+Release: 1
+License: BSD
+Group: Applications/System
+Source: http://i2o.shadowconnect.com/raidutils/raidutils-@VERSION@.tar.bz2
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
+%description
+The raidutils program allow the user to manage the Adaptec I2O compliant RAID
+controllers. It can, for example, create/delete an RAID array, add/remove a hot
+spare drive to/from a RAID array, activate/silence the alarm or get information
+about the status of the RAID array and disks.
+
+%prep
+%setup -q
+
+%build
+%configure
+make %{?_smp_mflags}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
+rm $RPM_BUILD_ROOT/%{_libdir}/libraidutil.a
+rm $RPM_BUILD_ROOT/%{_libdir}/libraidutil.so
+rm $RPM_BUILD_ROOT/%{_libdir}/libraidutil.la
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-,root,root)
+%doc README COPYING ChangeLog
+
+%{_bindir}/raidutil
+%{_bindir}/raideng
+%{_libdir}/libraidutil.so.0
+%{_libdir}/libraidutil.so.0.0.0
+
+%changelog
+* Wed May 05 2004 Markus Lidel <Markus.Lidel@shadowconnect.com>
+- Changed recognition of I2O pass-thru option availability.
+- Now raidutils use the right headers if using gcc version 3.3.
+* Mon May 03 2004 Markus Lidel <Markus.Lidel@shadowconnect.com>
+- Cleaned up RPM regarding the guideline of Anvil, warren and mschwendt. Many
+  thanks to them.
+* Sun May 02 2004 Markus Lidel <Markus.Lidel@shadowconnect.com>
+- first version with SPEC file to build a rpm.
