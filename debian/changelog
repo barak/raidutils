@@ -1,6 +1,7 @@
 raidutils (0.0.4-3) unstable; urgency=low
 
   * Typo in raideng help text (closes: #260545)
+  * Mention dpt_i2o in description (closes: #260544)
 
  --
 
