@@ -1,0 +1,4 @@
+?package(raidutils):needs=text section=Apps/System/Admin\
+  title="raidutil" command="/usr/sbin/raidutil"
+?package(raidutils):needs=text section=Apps/System/Admin\
+  title="raideng" command="/usr/sbin/raideng"
