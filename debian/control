@@ -2,7 +2,7 @@ Source: raidutils
 Section: admin
 Priority: optional
 Maintainer: Barak A. Pearlmutter <bap@debian.org>
-Build-Depends: debhelper (>= 4.0.0)
+Build-Depends: debhelper (>= 4.0.0), autoconf (>= 2.58)
 Standards-Version: 3.6.1
 
 Package: raidutils
@@ -10,7 +10,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: dtp-i2o-raidutils
 Description: Adaptec I2O hardware RAID management utilities
- Suite of programs to manage some I2O-compliant RAID controllers; in
+ suite of programs to manage some I2O-compliant RAID controllers; in
  particular some Adaptec hardware; to be very specific those using the
  dpt_i2o kernel module or CONFIG_SCSI_DPT_I2O driver.  One can
  create/delete a RAID array, add/remove a hot spare drive to/from an
