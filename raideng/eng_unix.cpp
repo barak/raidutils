@@ -909,7 +909,7 @@ void DisplayHelp(void)
 #else
 void DisplayHelp(void)
   {
-    printf("The Pramaters For This Program Are :\n");
+    printf("The Parameters For This Program Are :\n");
     printf(
 "  /VERBOSE            :  Display All Connection And Message Information\n");
     printf(

@@ -1,3 +1,9 @@
+raidutils (0.0.4-3) unstable; urgency=low
+
+  * Typo in raideng help text (closes: #260545)
+
+ --
+
 raidutils (0.0.4-2) unstable; urgency=low
 
   * Clarify description
