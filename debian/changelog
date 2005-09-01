@@ -1,3 +1,10 @@
+raidutils (0.0.4-6) unstable; urgency=low
+
+  * patch from Andreas Jochens <aj@andaco.de> for 64-bit issue,
+    inappropriate cast of (char *) to int (closes: #302597)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu,  1 Sep 2005 12:10:58 +0200
+
 raidutils (0.0.4-5) unstable; urgency=low
 
   * copy linux 2.6.8 i2o-dev.h to include/linux/i2o-dev.h (closes: #278239)

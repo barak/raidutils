@@ -491,7 +491,7 @@ main(int argc, char *argv[])
 
   /* Make Sure That We Could Attach */
 
-            if((int)toEng_P != -1)
+            if((long)toEng_P != -1)
               {
                  fromEng_P = toEng_P + HdrBuff.FromEngBuffOffset;
 

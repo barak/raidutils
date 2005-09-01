@@ -987,7 +987,7 @@ char *AllocBuffers(uLONG toEngSize, uLONG fromEngSize)
 
   /* The Attach Failed, So DeAllocate The Shared Memory */
 
-        if((int)SharedMemoryPtr == -1)
+        if((long)SharedMemoryPtr == -1)
           {
             shmctl(BufferID,IPC_RMID,&shm_buff);
             SharedMemoryPtr = NULL;
