@@ -41,8 +41,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:14  bap
-* Initial revision
+* Revision 1.2  2005-09-04 14:34:26  bap
+* put newline at end of file (gah)
 *
 *****************************************************************************/
 
