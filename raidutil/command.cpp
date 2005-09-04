@@ -44,8 +44,9 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:14  bap
-* Initial revision
+* Revision 1.2  2005-09-04 14:21:50  bap
+* Comment out potentially incorrect declaration of exit(), which is
+* declared in stdlib.h anyway.
 *
 *****************************************************************************/
 
@@ -2240,13 +2241,14 @@ void Command::MakeArrayOptimal(DPT_TAG_T arrayTag)
 }
 
 
-#ifdef sparc
-# define VOLATILE volatile
-#else
-# define VOLATILE
-#endif
-
-extern "C" { VOLATILE void exit (int);}
+//// Comment out this stuff, for Debian.
+// #ifdef sparc
+// # define VOLATILE volatile
+// #else
+// # define VOLATILE
+// #endif
+//
+// extern "C" { VOLATILE void exit (int);}
 
 void Command::Init_Engine(int scanHbasOnly)
 {
