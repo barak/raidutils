@@ -4067,10 +4067,9 @@ if (bytesLeft >= bytesNeeded) {
 
    if (basic_P->attachedTo!=0) {
 	// Return this object's manager SCSI ID instead of tag
-      uLONG u = myMgr_P()->getAddrL();
+      basic_P->attachedTo = myMgr_P()->getAddrL();
 	// Reverse the SCSI address bytes
-      reverseBytes(u);
-      basic_P->attachedTo = u;
+      reverseBytes((uLONG &) basic_P->attachedTo);
    }
      // Return the component list size
    fromEng_P->insert(compSize);
