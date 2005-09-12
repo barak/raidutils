@@ -1,3 +1,9 @@
+raidutils (0.0.6-1) unstable; urgency=low
+
+  * new upstream (closes: #327805)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 12 Sep 2005 18:36:46 +0100
+
 raidutils (0.0.4-7) unstable; urgency=low
 
   * comment out redundant and potentially incorrect declaration of the
