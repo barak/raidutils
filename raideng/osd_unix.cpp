@@ -2674,7 +2674,7 @@ int BufferAlloc(uLONG toLoggerSize, char **toLogger_P_P,uLONG fromEngSize,
 
   /* The Attach Failed, So DeAllocate The Shared Memory */
 
-            if((long)SharedMemoryPtr == -1)
+            if((int)SharedMemoryPtr == -1)
               {
                 Rtnval = 1;
                 shmctl(BufferID,IPC_RMID,&shm_buff);
