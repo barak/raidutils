@@ -1,5 +1,6 @@
+*.lo
 .deps
 .libs
 Makefile
 libraidutil.la
-*.lo
+libraidutil_la-engmsg.loT
