@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1.1.1  2004-04-29 10:20:14  bap
-* Imported upstream version 0.0.4. 
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -58,7 +58,7 @@
 class Expand:public Command
 {
    public:
-      Expand::Expand (SCSI_Address raid, SCSI_Addr_List *list);
+                Expand (SCSI_Address raid, SCSI_Addr_List *list);
 		Expand (const Expand &new_Expand);
 		virtual ~Expand();
 		Expand &operator = (Expand &right);

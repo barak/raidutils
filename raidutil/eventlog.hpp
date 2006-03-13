@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1.1.1  2004-04-29 10:20:15  bap
-* Imported upstream version 0.0.4. 
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -80,7 +80,7 @@ class EventLog:public Command
 	{
 
 	public:
-		EventLog::EventLog(SCSI_Addr_List *deviceList, 
+		EventLog(SCSI_Addr_List *deviceList, 
             EventLogOptions cmd);
 		EventLog(const EventLog &new_EventLog);
 		virtual	~EventLog();

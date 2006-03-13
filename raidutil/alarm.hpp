@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1.1.1  2004-04-29 10:20:14  bap
-* Imported upstream version 0.0.4. 
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -61,7 +61,7 @@ enum AlarmCommand { None, On, Off, Enable, Disable, Status };
 class AlarmStatus:public Command
 	{
 	public:
-		AlarmStatus::AlarmStatus( int hba, AlarmCommand cmd );							
+		AlarmStatus( int hba, AlarmCommand cmd );							
 		AlarmStatus( const AlarmStatus &new_AlarmStatus );
 		virtual	~AlarmStatus();
 		AlarmStatus	&operator = ( AlarmStatus &right );
