@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:11  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -62,8 +62,8 @@ class SetRate: public Command
 	public:
 
 		// Set the (global) rebuild rate
-        SetRate::SetRate(int rate, SCSI_Addr_List *objs);
-        SetRate::SetRate(const SetRate &right);
+                SetRate(int rate, SCSI_Addr_List *objs);
+                SetRate(const SetRate &right);
 		virtual	~SetRate();
 
 		Dpt_Error execute(String_List **output);

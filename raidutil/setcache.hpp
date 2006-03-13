@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:15  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -58,11 +58,11 @@
 class SetCache:public Command
 	{
 	public:
-		SetCache::SetCache(
-				SCSI_Addr_List	*addresses,		// a list of addresses
-				int				on,				// Whether to enable or disable
-				int				rw				// Read or write cacheing.
-				);								// to delete raid tables on
+		SetCache(
+			SCSI_Addr_List	*addresses,		// a list of addresses
+			int				on,				// Whether to enable or disable
+			int				rw				// Read or write cacheing.
+			);								// to delete raid tables on
 		SetCache( const SetCache &new_SetCache );
 		virtual	~SetCache();
 		SetCache	&operator = ( SetCache &right );

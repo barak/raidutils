@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:12  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -62,7 +62,7 @@ enum TaskCommandOptions { List, Build, Rebuild, Verify, Stop, VerifyNoFix };
 class TaskControl:public Command
 	{
 	public:
-		TaskControl::TaskControl(SCSI_Addr_List *deviceList, TaskCommandOptions cmd);
+		TaskControl(SCSI_Addr_List *deviceList, TaskCommandOptions cmd);
 		TaskControl(const TaskControl &new_TaskControl);
 		virtual	~TaskControl();
 

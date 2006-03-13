@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:13  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -62,7 +62,7 @@ class UartDmp:public Command
 {
 
 	public:
-		UartDmp::UartDmp(int hbaNo, char *fileName);
+		UartDmp(int hbaNo, char *fileName);
 		UartDmp(const UartDmp &new_UartDmp);
 		virtual	~UartDmp();
 

@@ -271,7 +271,7 @@ struct raidDef_S : public raidDefinition_S
 
 // Constructor/Destructor.............................
 
-			raidDef_S::raidDef_S();
+			raidDef_S();
 
 };
 #endif  // c++

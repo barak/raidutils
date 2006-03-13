@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-05-05 12:50:22  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -61,7 +61,7 @@ class NameArray:public Command
 {
 
 	public:
-		NameArray::NameArray(SCSI_Address arrayToName, char *arrayName);
+		NameArray(SCSI_Address arrayToName, char *arrayName);
 		NameArray(const NameArray &new_NameArray);
 		virtual	~NameArray();
 

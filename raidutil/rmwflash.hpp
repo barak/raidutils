@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:12  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -62,7 +62,7 @@ class RMWFlash:public Command
 {
 
         public:
-                RMWFlash::RMWFlash(int hbaNo, char *Data, int Region, unsigned long Offset, unsigned Size);
+                RMWFlash(int hbaNo, char *Data, int Region, unsigned long Offset, unsigned Size);
                 RMWFlash(const RMWFlash &new_RMWFlash);
                 virtual ~RMWFlash();
 

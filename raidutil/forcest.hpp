@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:14  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -68,7 +68,7 @@ enum ForceStateOptions { Optimal, Fail, Current };
 class ForceState:public Command
 	{
 	public:
-		ForceState::ForceState(SCSI_Addr_List *deviceList, ForceStateOptions cmd);
+		ForceState(SCSI_Addr_List *deviceList, ForceStateOptions cmd);
 		ForceState(const ForceState &new_ForceState);
 		virtual	~ForceState();
 

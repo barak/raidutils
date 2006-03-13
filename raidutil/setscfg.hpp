@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:12  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -62,7 +62,7 @@ class setscfg:public Command
 {
 
 	public:
-		setscfg::setscfg();
+		setscfg();
 		virtual	~setscfg();
 
 		Dpt_Error execute(String_List **output);

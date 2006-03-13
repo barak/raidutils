@@ -44,8 +44,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:12  bap
-* Initial revision
+* Revision 1.2  2006-03-13 03:15:15  bap
+* GCC 4.1 patch
 *
 *****************************************************************************/
 
@@ -58,7 +58,7 @@
 class Zap:public Command
 	{
 	public:
-		Zap::Zap(
+		Zap(
 				SCSI_Addr_List	*addresses,  // a list of addresses
             int resync = 0            // (send reset to hba or not)
       );								         // to delete raid tables on

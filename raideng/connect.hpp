@@ -189,7 +189,7 @@ public:
 
 // Constructor/Destructor.............................
 
-			dptSCSIcon_C::dptSCSIcon_C();
+			dptSCSIcon_C();
 
 // Message Handlers...................................
 

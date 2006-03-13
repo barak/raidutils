@@ -51,7 +51,7 @@ class arraySegment:public Command
 {
 
 	public:
-		arraySegment::arraySegment(SCSI_Address raidToSeg, uLONG segSize[8], uLONG segOffset[8], bool showSeg);
+		arraySegment(SCSI_Address raidToSeg, uLONG segSize[8], uLONG segOffset[8], bool showSeg);
 		arraySegment(const arraySegment &new_arraySegment);
 		virtual	~arraySegment();
 
