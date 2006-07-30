@@ -2,8 +2,9 @@ raidutils (0.0.6-1) unstable; urgency=low
 
   * new upstream (closes: #327805)
   * change ctl device node (closes: #337919)
+  * revert to upstream include/linux/i2o-dev.h and raideng/osd_unix.cpp
   
- -- Barak A. Pearlmutter <bap@debian.org>  Mon, 12 Sep 2005 18:36:46 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 31 Jul 2006 00:54:11 +0100
 
 raidutils (0.0.4-7) unstable; urgency=low
 
