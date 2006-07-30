@@ -20,10 +20,19 @@
 #ifndef _I2O_DEV_H
 #define _I2O_DEV_H
 
+#define __user
 /* How many controllers are we allowing */
 #define MAX_I2O_CONTROLLERS	32
 
-//#include <linux/ioctl.h>
+#include <linux/compiler.h>
+
+#ifndef __KERNEL__
+
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef unsigned int u32;
+
+#endif				/* __KERNEL__ */
 
 /*
  * I2O Control IOCTLs and structures
@@ -125,14 +134,6 @@ struct i2o_evt_get {
 #define I2O_BUS_NUBUS	6
 #define I2O_BUS_CARDBUS 7
 #define I2O_BUS_UNKNOWN 0x80
-
-#ifndef __KERNEL__
-
-typedef unsigned char u8;
-typedef unsigned short u16;
-typedef unsigned int u32;
-
-#endif				/* __KERNEL__ */
 
 typedef struct _i2o_pci_bus {
 	u8 PciFunctionNumber;
