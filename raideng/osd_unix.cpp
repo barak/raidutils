@@ -166,7 +166,7 @@ typedef struct dpt_scsi_ha      HbaInfo;
 
 /* Definitions - Device names -----------------------------------------------*/
 
-char *DEV_CTL "/dev/i2octl"	// formerly /dev/i2o/ctl
+char *DEV_CTL = "/dev/i2octl";	// formerly /dev/i2o/ctl
 
 /* Function Prototypes ------------------------------------------------------*/
 
