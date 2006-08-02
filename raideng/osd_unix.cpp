@@ -2371,7 +2371,7 @@ DPT_RTN_T osdGetSysInfo(sysInfo_S *SysInfo_P)
        SysInfo_P->busType = SI_PCI_BUS;
        SysInfo_P->processorFamily = PROC_INTEL;
        buffer_size = sysinfo(SI_ARCHITECTURE, buffer_ptr, 0);
-       buffer_ptr = (char *)malloc((int)buffer_size);
+       buffer_ptr = (char *)malloc((size_t)buffer_size);
        status = sysinfo(SI_ARCHITECTURE, buffer_ptr, buffer_size);
        if (status != -1)
         {
@@ -2651,7 +2651,7 @@ int BufferAlloc(uLONG toLoggerSize, char **toLogger_P_P,uLONG fromEngSize,
 
   /* The Attach Failed, So DeAllocate The Shared Memory */
 
-            if((int)SharedMemoryPtr == -1)
+            if((long)SharedMemoryPtr == -1)
               {
                 Rtnval = 1;
                 shmctl(BufferID,IPC_RMID,&shm_buff);
@@ -2786,7 +2786,7 @@ int BufferAlloc(uLONG toLoggerSize, char **toLogger_P_P,uLONG fromEngSize,
         toLoggerTotalSize = toLoggerSize + sizeof(dptBuffer_S);
         fromLoggerTotalSize = fromEngSize + sizeof(dptBuffer_S);
         FromLoggerBuffOffset = toLoggerTotalSize;
-        Ptr = (char *)malloc((uINT)(toLoggerTotalSize + fromLoggerTotalSize));
+        Ptr = (char *)malloc((size_t)(toLoggerTotalSize + fromLoggerTotalSize));
         if(Ptr != NULL)
           {
             *toLogger_P_P = Ptr;
@@ -3425,7 +3425,7 @@ void *osdAllocIO(uLONG size)
  {
    void *Rtnval;
 
-   Rtnval = (void *)malloc((uINT)size);
+   Rtnval = (void *)malloc((size_t)size);
    if(Verbose)
      {
        FormatTimeString(TimeString,time(0));
