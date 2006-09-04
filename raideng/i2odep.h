@@ -203,7 +203,7 @@ typedef unsigned char BOOL;
 # define _F_set12bit4(w,x,y,z,u) ((w)->z = (u))
 # define _F_get16bit(w,x,y,z)    ((U16)((w)->z))
 # define _F_set16bit(w,x,y,z,u)  ((w)->z = (u))
-#elif (defined(_DPT_BIG_ENDIAN))
+#elif (defined(_DPT_BIG_ENDIAN) || defined(sparc))
 /* First 12 bits */
 # define _F_getTID(w,x,y)     getL12bit(w,x,0)
 # define _F_setTID(w,x,y,z)   setL12bit(w,x,0,z)
