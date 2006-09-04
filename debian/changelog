@@ -1,3 +1,9 @@
+raidutils (0.0.6-3) unstable; urgency=low
+
+  * special SPARC patch to raideng/i2odep.h from Jurij Smakov (closes: #326922)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon,  4 Sep 2006 13:04:37 +0100
+
 raidutils (0.0.6-2) unstable; urgency=low
 
   * 64-bit cleanliness, merge bits of prev patch (closes: #302597, #380700)
