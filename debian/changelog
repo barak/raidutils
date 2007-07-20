@@ -1,3 +1,11 @@
+raidutils (0.0.6-3.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * High urgency for RC bug fix.
+  * Fix build with linux-libc-dev (closes: #429001).
+
+ -- Julien Cristau <jcristau@debian.org>  Fri, 20 Jul 2007 19:47:42 +0200
+
 raidutils (0.0.6-3) unstable; urgency=low
 
   * special SPARC patch to raideng/i2odep.h from Jurij Smakov (closes: #326922)

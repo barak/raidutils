@@ -24,7 +24,6 @@
 /* How many controllers are we allowing */
 #define MAX_I2O_CONTROLLERS	32
 
-#include <linux/compiler.h>
 
 #ifndef __KERNEL__
 
