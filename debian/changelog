@@ -1,3 +1,10 @@
+raidutils (0.0.6-4) unstable; urgency=low
+
+  * Fix raideng ioctl segfault (closes: #332229) and improve its error output,
+    thanks to a patch from Nathan Stratton Treadway <nathanst@ontko.com>
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 30 Jan 2008 10:59:42 +0000
+
 raidutils (0.0.6-3.1) unstable; urgency=high
 
   * Non-maintainer upload.

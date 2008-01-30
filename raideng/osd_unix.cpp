@@ -378,32 +378,44 @@ DPT_RTN_T osdIOrequest(uSHORT ioMethod)
 
    if(ioMethod==DPT_IO_PASS_THRU)
      {
+       // make sure the device entry represents an active device and not
+       // just a device file that was probed without actually finding a
+       // device, so we don't wait 20 seconds trying to connect to 
+       // it...
+       if(DefaultHbaDev->Flags == 0 )
+         {
+           FormatTimeString(TimeString,time(0));
+           printf("\nosdIDrequest   : %s Fatal error, DefaultHbaDev does not point to an active controller.\n", TimeString);
+           fflush(stdout);
+         }
+       else {
 
-  /* Try To Open The First Adapter Device */
+              /* Try To Open The First Adapter Device */
 
-       for(Index = 0; Index < 20; ++Index)
-        {
-          FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
-          if((FileID == -1)&&(errno == ENOENT))
-           {
-             sleep(1);
-           }
-           else {
-                  break;
-           }
-        }
+                     for(Index = 0; Index < 20; ++Index)
+               {
+                 FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
+                 if((FileID == -1)&&(errno == ENOENT))
+                  {
+                    sleep(1);
+                  }
+                  else {
+                         break;
+                  }
+               }
 
 #ifdef _SINIX_ADDON
-       if (DemoMode)
-           FileID = 99;
+              if (DemoMode)
+                  FileID = 99;
 #endif
-       if(FileID != -1)
-         {
-           retVal = MSG_RTN_COMPLETED;
-           close(FileID);
-         }
-       else printf("\nosdIOrequest : File %s Could Not Be Opened",
-                     DefaultHbaDev->NodeName);
+              if(FileID != -1)
+                {
+                  retVal = MSG_RTN_COMPLETED;
+                  close(FileID);
+                }
+              else printf("\nosdIOrequest : File %s Could Not Be Opened",
+                            DefaultHbaDev->NodeName);
+            }
      }
    if(Verbose)
         printf("\nosdIOrequest   : Return = %x",retVal);
@@ -504,6 +516,15 @@ DPT_RTN_T osdOpenEngine(void)
 
    retVal = MSG_RTN_COMPLETED;
    NumHBAs = BuildNodeNameList();
+
+   // If there are no HBAs found, abort with an explict error message.
+   if(NumHBAs == 0)
+     {
+     FormatTimeString(TimeString,time(0));
+     printf("\nosdOpenEngine  : %s Fatal error, no active controller device files found.\n", TimeString);
+     retVal = MSG_RTN_FAILED;
+     fflush(stdout);
+     }
 
    if(Verbose)
      {
@@ -3747,16 +3768,56 @@ uSHORT BuildNodeNameList(void)
    NumEntries = 0;
 
 #  if (defined(_DPT_LINUX_I2O))
+   uCHAR LinuxI2ODataBuff[MAX_I2O_CONTROLLERS];
+
    memset(&pkt, 0, sizeof(EATA_CP));
    HbaDevs[NumEntries].Flags = 0;
    strcpy(HbaDevs[NumEntries].NodeName, DEV_CTL);
-   IoctlRtn = osdSendIoctl(&HbaDevs[NumEntries], I2OGETIOPS, (uCHAR *)&NumEntries, &pkt);
+   IoctlRtn = osdSendIoctl(&HbaDevs[NumEntries], I2OGETIOPS, LinuxI2ODataBuff, &pkt);
    if(!IoctlRtn) {
-     for(i = 0; i < NumEntries; i ++) {
-       HbaDevs[i].Flags = NODE_FILE_VALID_HBA_B | NODE_FILE_I2O_HBA_B;
-       HbaDevs[i].IoAddress = UINTPTR_MAX;
-       strcpy(HbaDevs[i].NodeName, DEV_CTL);
-     }
+     // step through the returned data buffer and look for the 
+     // non-zero entries, which indicate an active IOP.  For each
+     // one we find, add a corresponding entry in HbaDevs.
+     for(i = 0; i < MAX_I2O_CONTROLLERS; i ++) {
+       if ( LinuxI2ODataBuff[i] != 0  ) 
+        {
+          if(NumEntries >= MAX_HAS)
+           {
+             FormatTimeString(TimeString,time(0));
+
+             printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
+                    TimeString, MAX_HAS);
+
+             fflush(stdout);
+             break;
+            }
+          if(Verbose)
+            {
+              FormatTimeString(TimeString,time(0));
+
+              printf("\nBuildNodeNameList  : %s Found Linux I2O Controler, using %s device file for utility-relative controller number %d.",
+                     TimeString, DEV_CTL, NumEntries);
+
+              fflush(stdout);
+            }
+
+          HbaDevs[NumEntries].Flags = NODE_FILE_VALID_HBA_B | NODE_FILE_I2O_HBA_B;
+          HbaDevs[NumEntries].IoAddress = UINTPTR_MAX;
+          strcpy(HbaDevs[NumEntries].NodeName, DEV_CTL);
+
+          ++NumEntries;
+        }
+       else {
+              // for now, we'll assume that all the active IOP entries
+              // are at the front of the returned buffer.  In order to
+              // support "gaps", we'd need to record the IOP index in the
+              // NodeFiles_S structure and use that instead of HbaNum when
+              // we call the I2OPASSTHRU ioctl (or make sure that
+              // everything that looks at HbaDevs can handle inactive
+              // entries in the middle of the array).
+              break;
+       }
+     } // for(i = 0; i < MAX_I2O_CONTROLLERS; i ++) 
    }
 #  endif
 
