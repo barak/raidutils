@@ -27,6 +27,14 @@
  */
 
 // Data unique to every engine device
+
+
+// use PACK for things that should be packed;
+// PACK_A for things that you'd like packed by would give a
+// warning on anything except an ARM if actually packed; and
+// PACK_WAS if it used to be packed by this gave warnings
+// everywhere so now it isn't.
+
 #undef PACK
 #if (defined(__GNUC__))
 # define PACK __attribute__ ((packed))
@@ -34,11 +42,17 @@
 #define PACK
 #endif
 
+#ifdef __arm__
+# define PACK_A PACK
+#else
+# define PACK_A
+#endif
+
 uSHORT		scsiOffset;	// 0=Async mode
 				// Non-zero = SCSI offset
 uSHORT		xfrSpeed;	// SCSI transfer speed
-dptCcapacity_S	capacity PACK;	// Device capacity
-dptCemuParam_S	emulation PACK;	// Emulated drive parameters
+dptCcapacity_S	capacity PACK_A;	// Device capacity
+dptCemuParam_S	emulation PACK_A;	// Emulated drive parameters
   // DPT specific name (ASCII string)
   // (Up to 8 valid chars + NULL terminator + 1)
 uCHAR		dptName[DPT_NAME_SIZE+2];

@@ -152,7 +152,7 @@ int MessageDPTEngine(int EngineMsgKey,int msqID,int EngineMessage,
      //
      // Send off the message to the engine
      //
-     if(i = msgsnd(msqID,(struct msgbuf *)&HdrBuff,MsgDataSize,0) != -1)
+     if((i = msgsnd(msqID,(struct msgbuf *)&HdrBuff,MsgDataSize,0)) != -1)
       {
         //
         // Let's set up a little loop here receiving messages in case

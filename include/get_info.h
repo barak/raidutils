@@ -364,6 +364,12 @@ const uLONG DPT_ENGINE_COMPATIBILITY   = 4;
    #include    "device.hh"
    #include    "raid_dev.hh"
 
+     // use PACK for things that should be packed;
+     // PACK_A for things that you'd like packed by would give a
+     // warning on anything except an ARM if actually packed; and
+     // PACK_WAS if it used to be packed by this gave warnings
+     // everywhere so now it isn't.
+
 #undef PACK
 #if (defined(__GNUC__))
 # define PACK __attribute__ ((packed))
@@ -371,19 +377,27 @@ const uLONG DPT_ENGINE_COMPATIBILITY   = 4;
 #define PACK
 #endif
 
+#ifdef __arm__
+# define PACK_A PACK
+#else
+# define PACK_A
+#endif
+
+#define PACK_WAS
+
    uSHORT flags2;        // Supplemental flags word
    uSHORT hbaIndex; // HBA index # (slot #)
    uSHORT hbaFlags; // HBA flags - see bit definitions below
 #if defined (_DPT_STRICT_ALIGN)
    uSHORT sniAdjust3;
 #endif
-   uLONG  magicNum  PACK; // RAID magic #
-   uLONG  hbaTag    PACK;     // Reserved for future expansion
-   uLONG  flags3    PACK;     // Miscellaneous flags - see bit definitions above
-   uSHORT busSpeed  PACK;     // Negotiated bus speed (in Mhz)
-   uCHAR  p2Flags   PACK;     // Path 2 flags - see bit definitions above
-   uCHAR  reserved4 PACK;     // Reserved for future expansion
-   uLONG  availableCapacity PACK;     // Reserved for future expansion
+   uLONG  magicNum  PACK;	// RAID magic #
+   uLONG  hbaTag    PACK;	// Reserved for future expansion
+   uLONG  flags3    PACK;	// Miscellaneous flags - see bit definitions above
+   uSHORT busSpeed  PACK;	// Negotiated bus speed (in Mhz)
+   uCHAR  p2Flags   PACK_WAS;	// Path 2 flags - see bit definitions above
+   uCHAR  reserved4 PACK_WAS;	// Reserved for future expansion
+   uLONG  availableCapacity PACK;	// Reserved for future expansion
 
    uCHAR  udmaModeSupported;// The maximum UDMA mode supported
    uCHAR  udmaModeSelected;	// The current operational UDMA mode

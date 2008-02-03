@@ -34,13 +34,13 @@
 #define PACK
 #endif
 
-   dptIOaddr_U ioAddr PACK;             // EISA/ISA/PCI address
+   dptIOaddr_U ioAddr PACK_A;             // EISA/ISA/PCI address
    uSHORT drvrRefNum;         // Number by which the driver ref-
 					// erences this HBA
 #if defined (_DPT_STRICT_ALIGN)
    uSHORT sniAdjust4;
 #endif
-   dptHBAid_U  id PACK;       // EISA = ID PAL bytes
+   dptHBAid_U  id PACK_A;       // EISA = ID PAL bytes
 					// ISA = Not used
 					// PCI = vendor ID, product ID
    uSHORT drqNum;             // DRQ # (0,5,6,7,0xffff=invalid)
@@ -80,7 +80,7 @@
    uCHAR  raidID;        // Software selectable RAID ID #
    uCHAR  slotID;        // Slot specific RAID ID #
 
-   dptChanInfo_S chanInfo[NUM_CHAN_INFO] PACK; // SCSI channel info (multi-channel boards)
+   dptChanInfo_S chanInfo[NUM_CHAN_INFO] PACK_A; // SCSI channel info (multi-channel boards)
 
    uCHAR  excludeStart;
    uCHAR  excludeEnd;

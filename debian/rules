@@ -64,7 +64,11 @@ install: build
 
 	# Add here commands to install the package into debian/raidutils.
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/raidutils
-	-rm -f debian/raidutils/usr/lib/libraidutil.{a,la,so}
+#bashism: -rm -f debian/raidutils/usr/lib/libraidutil.{a,la,so}
+	-rm -f debian/raidutils/usr/lib/libraidutil.a
+	-rm -f debian/raidutils/usr/lib/libraidutil.la
+	-rm -f debian/raidutils/usr/lib/libraidutil.so
+
 
 
 # Build architecture-independent files here.
