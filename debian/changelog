@@ -1,6 +1,7 @@
 raidutils (0.0.6-5.rc) unstable; urgency=low
 
   * Patch from Nathan Stratton Treadway plugs memory leak (closes: #273577)
+  * Include README in /usr/share/doc/<package>/ iff non-empty (closes: #275068)
 
  --
 
