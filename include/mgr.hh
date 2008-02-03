@@ -34,8 +34,8 @@
 #define PACK
 #endif
 
-   dptCaddr_S	maxAddr PACK;	// Maximum physical address supported
-   dptCaddr_S	minAddr PACK;	// Minimum physical address supported
+   dptCaddr_S	maxAddr PACK_A;	// Maximum physical address supported
+   dptCaddr_S	minAddr PACK_A;	// Minimum physical address supported
 
 // RAID manager information (Ignore if not a RAID manager)
 
