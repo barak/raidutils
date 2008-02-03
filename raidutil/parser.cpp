@@ -41,8 +41,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:12  bap
-* Initial revision
+* Revision 1.2  2008-02-03 13:58:55  bap
+* patch memory leak
 *
 *****************************************************************************/
 
@@ -733,6 +733,7 @@ DELETE_HOT_SPARE:
                     {
                              EventLog *temp = new EventLog (components, eventLogOpts);
                              cmd_List->add_Item (*temp);
+                             delete temp;
                     }
                     else
                         Error_in_Parsing(EventStrings[STR_PARSE_ERR_MUST_SPECIFY_ADDRESS], this_Commands_Text);
@@ -1648,7 +1649,7 @@ END_OF_VERB:
                     temp = new NvramBit (Cache_Stale, params.hba_Num, temp_set);
                 else
                     temp = new NvramBit (Cache_Stale, -1, temp_set);
-                    cmd_List->add_Item (*temp);
+                cmd_List->add_Item (*temp);
                 delete temp;
             }
             else if (!strncmp(command_Line, "+cluster", strlen("cluster")))

@@ -1,3 +1,9 @@
+raidutils (0.0.6-5.rc) unstable; urgency=low
+
+  * Patch from Nathan Stratton Treadway plugs memory leak (closes: #273577)
+
+ --
+
 raidutils (0.0.6-4) unstable; urgency=low
 
   * Fix raideng ioctl segfault and improve its error output, thanks to a
