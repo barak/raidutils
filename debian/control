@@ -6,13 +6,24 @@ Build-Depends: debhelper (>= 5), autoconf (>= 2.58), linux-kernel-headers
 Standards-Version: 3.7.3
 Homepage: http://i2o.shadowconnect.com
 
-Package: raidutils
+Package: dpt-i2o-raidutils
 Architecture: any
+Conflicts: raidutils (<< 0.0.6-6)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: dtp-i2o-raidutils
 Description: Adaptec I2O hardware RAID management utilities
- suite of programs to manage some I2O-compliant RAID controllers; in
+ Suite of programs to manage some I2O-compliant RAID controllers; in
  particular some Adaptec hardware; to be very specific those using the
- dpt_i2o kernel module or CONFIG_SCSI_DPT_I2O driver.  One can
+ dpt_i2o kernel module or CONFIG_SCSI_DPT_I2O driver, or (for more
+ recent kernels) the i2o_block and i2o_config modules, or
+ CONFIG_I2O_BLOCK and CONFIG_I2O_CONFIG drivers.  One can
  create/delete a RAID array, add/remove a hot spare drive to/from an
  array, activate/silence the alarm, and query array/disk status.
+
+Package: raidutils
+Architecture: all
+Depends: dpt-i2o-raidutils
+Description: Transition Package for raidutils rename to dpt-i2o-raidutils
+ The package previously named raidutils, used for manipulating some
+ Adaptec I2O RAID hardware, has been renamed dpt-i2o-raidutils.  This
+ package helps ease that transition.

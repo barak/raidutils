@@ -63,11 +63,13 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package into debian/raidutils.
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/raidutils
-#bashism: -rm -f debian/raidutils/usr/lib/libraidutil.{a,la,so}
-	-rm -f debian/raidutils/usr/lib/libraidutil.a
-	-rm -f debian/raidutils/usr/lib/libraidutil.la
-	-rm -f debian/raidutils/usr/lib/libraidutil.so
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/dpt-i2o-raidutils
+#bashism: -rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.{a,la,so}
+	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.a
+	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.la
+	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.so
+	ln -s raidutil debian/dpt-i2o-raidutils/usr/bin/dpt-i2o-raidutil
+	ln -s raideng  debian/dpt-i2o-raidutils/usr/bin/dpt-i2o-raideng
 
 
 
@@ -79,7 +81,8 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-	dh_installchangelogs ChangeLog
+	dh_installchangelogs --no-package=raidutils ChangeLog
+	dh_installchangelogs --package=raidutils
 	dh_installdocs $(shell test -s README && echo README)
 	dh_installexamples
 #	dh_install

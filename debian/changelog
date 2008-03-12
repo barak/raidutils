@@ -1,3 +1,9 @@
+raidutils (0.0.6-6) unstable; urgency=low
+
+  * change name of binary package to dpt-i2o-raidutils (closes: #253372)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun,  9 Mar 2008 18:32:21 +0000
+
 raidutils (0.0.6-5) unstable; urgency=low
 
   * Patch from Nathan Stratton Treadway plugs memory leak (closes: #273577)
