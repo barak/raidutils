@@ -21,7 +21,7 @@ Description: Adaptec I2O hardware RAID management utilities
  array, activate/silence the alarm, and query array/disk status.
 
 Package: raidutils
-Architecture: all
+Architecture: any
 Depends: dpt-i2o-raidutils
 Description: Transition Package for raidutils rename to dpt-i2o-raidutils
  The package previously named raidutils, used for manipulating some
