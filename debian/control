@@ -7,7 +7,7 @@ Standards-Version: 3.8.0
 Homepage: http://i2o.shadowconnect.com
 
 Package: dpt-i2o-raidutils
-Architecture: i386 amd64 arm armeb m32r m68k mips mipsel powerpc sparc
+Architecture: amd64 arm armeb armel hppa i386 m32r m68k mips mipsel powerpc s390 sh3 sh4 sparc
 Conflicts: raidutils (<< 0.0.6-6)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: dtp-i2o-raidutils
@@ -21,7 +21,7 @@ Description: Adaptec I2O hardware RAID management utilities
  array, activate/silence the alarm, and query array/disk status.
 
 Package: raidutils
-Architecture: i386 amd64 arm armeb m32r m68k mips mipsel powerpc sparc
+Architecture: amd64 arm armeb armel hppa i386 m32r m68k mips mipsel powerpc s390 sh3 sh4 sparc
 Depends: dpt-i2o-raidutils
 Description: Transition Package for raidutils rename to dpt-i2o-raidutils
  The package previously named raidutils, used for manipulating some

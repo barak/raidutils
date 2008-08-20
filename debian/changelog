@@ -1,3 +1,11 @@
+raidutils (0.0.6-8) unstable; urgency=low
+
+  * Include amd64 plus all 32-bit (4-byte pointer) architectures listed in
+    http://wiki.debian.org/ArchitectureSpecificsMemo in debian/control
+    architecture field (closes: #495828)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 20 Aug 2008 20:46:54 +0100
+
 raidutils (0.0.6-7) unstable; urgency=low
 
   * do not ignore clean error in debian/rules (lintian)
