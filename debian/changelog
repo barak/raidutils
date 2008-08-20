@@ -1,8 +1,12 @@
-raidutils (0.0.6-7rc) unstable; urgency=low
+raidutils (0.0.6-7) unstable; urgency=low
 
   * do not ignore clean error in debian/rules (lintian)
+  * target only on 32-bit architectures, and those 64-bit architectures
+    that admit to a GCC -m32 flag (presently only amd64), because the
+    involved ioctl() is 32-bit even on 64-bit systems (closes: #477105)
+  * rev deb pol, rev to dh 7
 
- -- Barak A. Pearlmutter <bap@debian.org>  Tue, 19 Aug 2008 11:58:04 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 20 Aug 2008 14:20:19 +0100
 
 raidutils (0.0.6-6) unstable; urgency=low
 
