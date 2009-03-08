@@ -1,3 +1,13 @@
+raidutils (0.0.6-9) unstable; urgency=low
+
+  * add linux-libc-dev build dependency, to satisfy the more abstract
+    linux-kernel-headers (closes: #498822)
+  * integrate Ubuntu patch for FTBFS with GCC 4.3 by adding perms arg to
+    open syscall in lib/lockunix.c (closes: #518047) see
+    https://bugs.launchpad.net/ubuntu/+source/raidutils/+bug/334551
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 08 Mar 2009 16:17:54 +0000
+
 raidutils (0.0.6-8) unstable; urgency=low
 
   * Include amd64 plus all 32-bit (4-byte pointer) architectures listed in

@@ -82,7 +82,7 @@ MkLock (char * name)
 		return (-1);
 	}
 	sprintf (templateBuffer, Template, Name);
-	if ((fd = open(mktemp (templateBuffer), O_WRONLY|O_CREAT|O_EXCL)) < 0) {
+	if ((fd = open(mktemp (templateBuffer), O_WRONLY|O_CREAT|O_EXCL, 0644)) < 0) {
 		free (templateBuffer);
 		free (lock);
 		return (-1);
@@ -152,7 +152,7 @@ ChLock (char * name, int pid)
 
 	if (lock != (char *)NULL) {
 		sprintf (lock, Lock, Name);
-	    if ((fd = open(lock, O_WRONLY|O_CREAT|O_TRUNC)) >= 0) {
+		if ((fd = open(lock, O_WRONLY|O_CREAT|O_TRUNC, 0644)) >= 0) {
 			sprintf (buffer, "%d\n", pid);
 			write (fd, buffer, strlen(buffer));
 			close (fd);
