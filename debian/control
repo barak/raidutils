@@ -5,6 +5,8 @@ Maintainer: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper (>= 7), autoconf (>= 2.58), linux-libc-dev | linux-kernel-headers, libc6-dev-i386 [amd64], g++-multilib [amd64], 
 Standards-Version: 3.8.0
 Homepage: http://i2o.shadowconnect.com
+Vcs-Git: git://git.debian.org/git/collab-maint/raidutils.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/raidutils.git
 
 Package: dpt-i2o-raidutils
 Architecture: amd64 arm armeb armel hppa i386 m32r m68k mips mipsel powerpc s390 sh3 sh4 sparc
