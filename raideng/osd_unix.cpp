@@ -378,47 +378,53 @@ DPT_RTN_T osdIOrequest(uSHORT ioMethod)
 
    if(ioMethod==DPT_IO_PASS_THRU)
      {
-       // make sure the device entry represents an active device and not
-       // just a device file that was probed without actually finding a
-       // device, so we don't wait 20 seconds trying to connect to 
-       // it...
+       // make sure the device entry represents an active device and 
+       // not just a device file that was probed unsuccessfully (so we 
+       // don't wait 20 seconds trying to connect to it in the "for" 
+       // loop... and so we don't generate a "could not be opened"
+       // error message mentioning the name of this probed-but-not-found
+       // device file, given that we wouldn't expect to be able to 
+       // open it anyway).
        if(DefaultHbaDev->Flags == 0 )
-         {
-           FormatTimeString(TimeString,time(0));
-           printf("\nosdIDrequest   : %s Fatal error, DefaultHbaDev does not point to an active controller.\n", TimeString);
-           fflush(stdout);
-         }
+	 {
+	   // this entry was NOT initialized, so print an error message
+	   // (and bypass any attempts to open the file; we simply return
+	   // MSG_RTN_FAILED to the caller)
+	   FormatTimeString(TimeString,time(0));
+	   printf("\nosdIDrequest   : %s Fatal error, DefaultHbaDev does not point to an active controller.\n", TimeString);
+	   fflush(stdout);
+	 }
        else {
 
-              /* Try To Open The First Adapter Device */
+	 /* Try To Open The First Adapter Device */
 
-                     for(Index = 0; Index < 20; ++Index)
-               {
-                 FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
-                 if((FileID == -1)&&(errno == ENOENT))
-                  {
-                    sleep(1);
-                  }
-                  else {
-                         break;
-                  }
-               }
+	 for(Index = 0; Index < 20; ++Index)
+	   {
+	     FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
+	     if((FileID == -1)&&(errno == ENOENT))
+	       {
+		 sleep(1);
+	       }
+	     else {
+	       break;
+	     }
+	   }
 
 #ifdef _SINIX_ADDON
-              if (DemoMode)
-                  FileID = 99;
+	 if (DemoMode)
+	   FileID = 99;
 #endif
-              if(FileID != -1)
-                {
-                  retVal = MSG_RTN_COMPLETED;
-                  close(FileID);
-                }
-              else printf("\nosdIOrequest : File %s Could Not Be Opened",
-                            DefaultHbaDev->NodeName);
-            }
+	 if(FileID != -1)
+	   {
+	     retVal = MSG_RTN_COMPLETED;
+	     close(FileID);
+	   }
+	 else printf("\nosdIOrequest : File %s Could Not Be Opened",
+		     DefaultHbaDev->NodeName);
+       }
      }
    if(Verbose)
-        printf("\nosdIOrequest   : Return = %x",retVal);
+     printf("\nosdIOrequest   : Return = %x",retVal);
    return(retVal);
  }
 /* osdIOrequest() - end  */
@@ -3782,14 +3788,14 @@ uSHORT BuildNodeNameList(void)
        if ( LinuxI2ODataBuff[i] != 0  ) 
         {
           if(NumEntries >= MAX_HAS)
-           {
-             FormatTimeString(TimeString,time(0));
+	    {
+	      FormatTimeString(TimeString,time(0));
 
-             printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
-                    TimeString, MAX_HAS);
+	      printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
+		     TimeString, MAX_HAS);
 
-             fflush(stdout);
-             break;
+	      fflush(stdout);
+	      break;
             }
           if(Verbose)
             {
@@ -3808,14 +3814,14 @@ uSHORT BuildNodeNameList(void)
           ++NumEntries;
         }
        else {
-              // for now, we'll assume that all the active IOP entries
-              // are at the front of the returned buffer.  In order to
-              // support "gaps", we'd need to record the IOP index in the
-              // NodeFiles_S structure and use that instead of HbaNum when
-              // we call the I2OPASSTHRU ioctl (or make sure that
-              // everything that looks at HbaDevs can handle inactive
-              // entries in the middle of the array).
-              break;
+	 // for now, we'll assume that all the active IOP entries
+	 // are at the front of the returned buffer.  In order to
+	 // support "gaps", we'd need to record the IOP index in the
+	 // NodeFiles_S structure and use that instead of HbaNum when
+	 // we call the I2OPASSTHRU ioctl (or make sure that
+	 // everything that looks at HbaDevs can handle inactive
+	 // entries in the middle of the array).
+	 break;
        }
      } // for(i = 0; i < MAX_I2O_CONTROLLERS; i ++) 
    }
