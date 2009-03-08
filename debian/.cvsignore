@@ -1,5 +1,0 @@
-*.debhelper
-*.substvars
-dpt-i2o-raidutils
-files
-raidutils

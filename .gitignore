@@ -1,0 +1,14 @@
+*.la
+*.lo
+*.o
+Makefile
+build-stamp
+config.h
+config.log
+config.status
+raideng/raideng
+raidutil/raidutil
+stamp-h1
+.deps/
+.libs/
+libtool

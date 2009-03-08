@@ -1,6 +1,0 @@
-*.lo
-.deps
-.libs
-Makefile
-libraidutil.la
-libraidutil_la-engmsg.loT

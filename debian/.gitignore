@@ -1,0 +1,6 @@
+*.debhelper
+*.log
+*.substvars
+files
+dpt-i2o-raidutils/
+raidutils/
