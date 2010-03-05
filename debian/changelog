@@ -1,3 +1,9 @@
+raidutils (0.0.6-10) UNRELEASED; urgency=low
+
+  * rev deb std
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 05 Mar 2010 17:52:39 +0000
+
 raidutils (0.0.6-9) unstable; urgency=low
 
   * add linux-libc-dev build dependency, to satisfy the more abstract
