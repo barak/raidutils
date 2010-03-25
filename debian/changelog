@@ -1,8 +1,9 @@
-raidutils (0.0.6-10) UNRELEASED; urgency=low
+raidutils (0.0.6-10) unstable; urgency=low
 
   * rev deb std
+  * Switch to dpkg-source 3.0 (git) format
 
- -- Barak A. Pearlmutter <bap@debian.org>  Fri, 05 Mar 2010 17:52:39 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 25 Mar 2010 18:56:40 +0000
 
 raidutils (0.0.6-9) unstable; urgency=low
 
