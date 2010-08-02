@@ -1,3 +1,9 @@
+raidutils (0.0.6-12) UNRELEASED; urgency=low
+
+  * bump standards version (debian/control)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 02 Aug 2010 14:36:26 +0200
+
 raidutils (0.0.6-11) unstable; urgency=low
 
   * Support more architectures per req from debian-ports (closes: #583360)
