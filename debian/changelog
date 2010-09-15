@@ -1,8 +1,9 @@
-raidutils (0.0.6-12) UNRELEASED; urgency=low
+raidutils (0.0.6-12) unstable; urgency=low
 
   * bump standards version (debian/control)
+  * Support armhf architecture per req (closes: #596988)
 
- -- Barak A. Pearlmutter <bap@debian.org>  Mon, 02 Aug 2010 14:36:26 +0200
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 15 Sep 2010 20:02:01 +0100
 
 raidutils (0.0.6-11) unstable; urgency=low
 

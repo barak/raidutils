@@ -9,7 +9,7 @@ Vcs-Git: git://git.debian.org/git/collab-maint/raidutils.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/raidutils.git
 
 Package: dpt-i2o-raidutils
-Architecture: amd64 arm avr32 armeb armel hppa i386 m32r m68k mips mipsel powerpc powerpcspe s390 sh3 sh4 sparc sparc64
+Architecture: amd64 arm avr32 armeb armel hppa i386 m32r m68k mips mipsel powerpc powerpcspe s390 sh3 sh4 sparc sparc64 armhf
 Conflicts: raidutils (<< 0.0.6-6)
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: dtp-i2o-raidutils
