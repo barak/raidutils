@@ -2,7 +2,10 @@ Source: raidutils
 Section: admin
 Priority: optional
 Maintainer: Barak A. Pearlmutter <bap@debian.org>
-Build-Depends: debhelper (>= 7), autoconf (>= 2.58), linux-libc-dev | linux-kernel-headers, libc6-dev-i386 [amd64], g++-multilib [amd64], 
+Build-Depends: debhelper (>= 8),
+	       autoconf (>= 2.58),
+	       linux-libc-dev | linux-kernel-headers,
+	       libc6-dev-i386 [amd64], g++-multilib [amd64]
 Standards-Version: 3.9.1
 Homepage: http://i2o.shadowconnect.com
 Vcs-Git: git://git.debian.org/git/collab-maint/raidutils.git
