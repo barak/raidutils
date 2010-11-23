@@ -2,8 +2,9 @@ raidutils (0.0.6-13) unstable; urgency=low
 
   * Build with -fpermissive to fix FTBFS (closes: #565084),
     per Ubuntu patch by Bhavani Shankar <bhavi@ubuntu.com>
+  * bump to debhelper 8
 
- -- Barak A. Pearlmutter <bap@debian.org>  Tue, 23 Nov 2010 10:00:21 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 23 Nov 2010 10:03:16 +0000
 
 raidutils (0.0.6-12) unstable; urgency=low
 
