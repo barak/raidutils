@@ -13,8 +13,8 @@ DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
-CFLAGS = -Wall -g
-CXXFLAGS = -Wall -g
+CFLAGS = -Wall -g -fpermissive
+CXXFLAGS = -Wall -g -fpermissive
 
 # When building on amd64, build 32 bit binaries.
 ifeq (amd64,$(DEB_BUILD_ARCH))
