@@ -164,6 +164,10 @@ typedef struct dpt_scsi_ha      HbaInfo;
 #define TO_LOGGER_BUFFER_SIZE    0x1000
 #define FROM_LOGGER_BUFFER_SIZE  0x10000
 
+/* Definitions - Device names -----------------------------------------------*/
+
+char *DEV_CTL = "/dev/i2octl";	// formerly /dev/i2o/ctl
+
 /* Function Prototypes ------------------------------------------------------*/
 
 DPT_RTN_T osdIOrequest(uSHORT ioMethod);
@@ -1259,7 +1263,7 @@ DPT_RTN_T osdSendMessage(uLONG HbaNum, PI2O_MESSAGE_FRAME UserStdMessageFrame_P,
 #elif defined (_DPT_SCO) || defined (SNI_MIPS) || defined(_DPT_SOLARIS) || defined(_DPT_BSDI) || defined(_DPT_FREE_BSD) || defined(_DPT_LINUX)
 
 #if defined(_DPT_LINUX_I2O)
-		     if(strcmp(HbaDevs[HbaNum].NodeName, "/dev/i2o/ctl"))
+		     if(strcmp(HbaDevs[HbaNum].NodeName, DEV_CTL))
                         i = ioctl(FileID,I2OUSRCMD,IoctlBuffer_P);
 		     else {
                         struct i2o_cmd_passthru pt;
@@ -2171,7 +2175,7 @@ DPT_RTN_T osdGetCtlrs(uSHORT ioMethod,uSHORT *numCtlrs_P,
                        i = 0;
                 }
 #elif defined(_DPT_LINUX_I2O)
-                if(strcmp(HbaDevs[Count].NodeName, "/dev/i2o/ctl"))
+                if(strcmp(HbaDevs[Count].NodeName, DEV_CTL))
                    i = osdSendIoctl(&HbaDevs[Count],DPT_CTRLINFO,DataBuff,&pkt);
 		else {
 		   /*
@@ -3774,7 +3778,7 @@ uSHORT BuildNodeNameList(void)
 
    memset(&pkt, 0, sizeof(EATA_CP));
    HbaDevs[NumEntries].Flags = 0;
-   strcpy(HbaDevs[NumEntries].NodeName, "/dev/i2o/ctl");
+   strcpy(HbaDevs[NumEntries].NodeName, DEV_CTL);
    IoctlRtn = osdSendIoctl(&HbaDevs[NumEntries], I2OGETIOPS, LinuxI2ODataBuff, &pkt);
    if(!IoctlRtn) {
      // step through the returned data buffer and look for the 
