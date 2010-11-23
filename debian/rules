@@ -16,12 +16,6 @@ DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 CFLAGS = -Wall -g -fpermissive
 CXXFLAGS = -Wall -g -fpermissive
 
-# When building on amd64, build 32 bit binaries.
-ifeq (amd64,$(DEB_BUILD_ARCH))
-CFLAGS += -m32
-CXXFLAGS += -m32
-endif
-
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 CFLAGS += -O0
 else
