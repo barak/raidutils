@@ -188,7 +188,7 @@ extern dpt_sig_S engineSig;
 
 /***************************** Main Entry Point *****************************/
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
   {
     int Rtnval;
     int Done;
