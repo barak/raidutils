@@ -434,7 +434,7 @@ SEMAPHORE_T osdCreateSemaphore()
     rtnVal = privateCreateUnnamedSemaphore(0);
 
     if (Verbose)
-        printf("\nosdCreateSemaphore   : Rtn = %x", rtnVal);
+        printf("\nosdCreateSemaphore   : Rtn = %lx", (unsigned long)rtnVal);
 
     return(rtnVal);
 }
@@ -475,7 +475,7 @@ SEMAPHORE_T osdCreateNamedSemaphore(char *name)
     rtnVal = privateCreateNamedSemaphore(temp, 0);
 
     if (Verbose)
-        printf("\nosdCreateNamedSemaphore   : Rtn = %x", rtnVal);
+        printf("\nosdCreateNamedSemaphore   : Rtn = %lx", (unsigned long)rtnVal);
 
     return(rtnVal);
 }
@@ -714,7 +714,7 @@ uLONG osdRequestSemaphore(SEMAPHORE_T semHandle, uLONG timeout)
     }
 
     if (Verbose)
-        printf("\nosdRequestSemaphore   : Rtn = %x\n", rtnVal);
+        printf("\nosdRequestSemaphore   : Rtn = %lx\n", rtnVal);
 
     return(rtnVal);
 }
@@ -885,7 +885,7 @@ SEMAPHORE_T osdCreateEventSemaphore()
     rtnVal = privateCreateUnnamedSemaphore(1);
 
     if (Verbose)
-        printf("\nosdCreateEventSemaphore   : Rtn = %x", rtnVal);
+        printf("\nosdCreateEventSemaphore   : Rtn = %lx", (unsigned long)rtnVal);
 
     return(rtnVal);
 }
@@ -923,7 +923,7 @@ SEMAPHORE_T osdCreateNamedEventSemaphore(char *name)
     rtnVal = privateCreateNamedSemaphore(temp, 1);
 
     if (Verbose)
-        printf("\nosdCreateNamedEventSemaphore   : Rtn = %x", rtnVal);
+        printf("\nosdCreateNamedEventSemaphore   : Rtn = %lx", (unsigned long)rtnVal);
 
     return(rtnVal);
 }

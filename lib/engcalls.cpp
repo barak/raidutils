@@ -292,8 +292,8 @@ DPT_RTN_T DPT_CallAnEngine(long DestinationKey,
        {
          if(AllocBuffers(ToSize,FromSize) == NULL)
            {
-             printf("\nShared Memory Allocation Failed, To Size = %x, From Size = %x, Errno = %x",
-                     ToSize, FromSize,  errno);
+             printf("\nShared Memory Allocation Failed, To Size = %lx, From Size = %lx, Errno = %x",
+                     (unsigned long)ToSize, (unsigned long)FromSize,  errno);
 #ifdef _DPT_LOGGER    
              //
              // If this is the logger, release the semaphore
@@ -1196,7 +1196,7 @@ void I2oPrintMem(char* Addr,long Count)
 
   // Print Out The Address In HEX
 
-     printf("\n%.4x  ",Offset);
+     printf("\n%.4lx  ",(unsigned long)Offset);
 
   // Now Print Out 16 Bytes In HEX Format
 
