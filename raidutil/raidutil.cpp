@@ -371,7 +371,7 @@ void Flush ( String_List * output )
    bool pageMode = mode.GetPagenationMode();
 
    // loop through the items in this command and display them
-   while( out_Str = output->get_Next_Item() )
+   while( (out_Str = output->get_Next_Item()) )
    {
       char temp_Buf[ 512 ];
       char stripped_Str[ 160 ];

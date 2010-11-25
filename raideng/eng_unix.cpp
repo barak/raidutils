@@ -410,7 +410,7 @@ main(int argc, char *argv[])
         // At the top of the loop, we will pull off and process all turnaround messages on the queue since
         // they don't have to be sent down to the engine
         //
-        while(Rtnval = msgrcv(MsqID,(struct msgbuf *)&HdrBuff, MsgDataSize, DPT_TurnAroundKey,IPC_NOWAIT) != -1)
+        while((Rtnval = (msgrcv(MsqID,(struct msgbuf *)&HdrBuff, MsgDataSize, DPT_TurnAroundKey,IPC_NOWAIT) != -1)))
          {
            Done = ProcessTurnAroundMessage(&HdrBuff);
          }
@@ -447,8 +447,8 @@ main(int argc, char *argv[])
          // Done is not set, so wait for a message to come in
          //
          else {
-                while(Rtnval = msgrcv(MsqID,(struct msgbuf *)&HdrBuff,
-                                      MsgDataSize, -DPT_EngineKey,0) == -1)
+                while((Rtnval = (msgrcv(MsqID,(struct msgbuf *)&HdrBuff,
+                                      MsgDataSize, -DPT_EngineKey,0) == -1)))
                  {
 
   /* If The Message Failed, And The Reason Was Not An Interrupt, Exit */

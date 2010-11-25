@@ -333,7 +333,7 @@ DPT_RTN_T DPT_CallAnEngine(long DestinationKey,
     //
     // Send off the message to the engine
     //
-    if(i = msgsnd(MsgID,(struct msgbuf *)&HdrBuff,MsgDataSize,0) != -1)
+    if((i = (msgsnd(MsgID,(struct msgbuf *)&HdrBuff,MsgDataSize,0) != -1)))
      {
        //
        // Set up the alarm if we are timming
