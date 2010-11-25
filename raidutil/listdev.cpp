@@ -41,8 +41,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:13  bap
-* Initial revision
+* Revision 1.1.1.1  2004-04-29 10:20:13  bap
+* Imported upstream version 0.0.4. 
 *
 *****************************************************************************/
 
@@ -2339,7 +2339,7 @@ Command::Dpt_Error	List_Device::List_Tags(
 		if (more_Devs_Left)
 		{
       	char tempBuf[5];
-		   sprintf (tempBuf, "%d", this_Objs_Tag);
+		   sprintf (tempBuf, "%d", (int)this_Objs_Tag);
    		output.add_Item (tempBuf);
 
   			err |= List_This_Device (output, this_Objs_Tag, devs_Type);

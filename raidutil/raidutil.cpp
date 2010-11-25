@@ -42,8 +42,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.1  2004-04-29 10:20:14  bap
-* Initial revision
+* Revision 1.1.1.1  2004-04-29 10:20:14  bap
+* Imported upstream version 0.0.4. 
 *
 *****************************************************************************/
 
@@ -371,7 +371,7 @@ void Flush ( String_List * output )
    bool pageMode = mode.GetPagenationMode();
 
    // loop through the items in this command and display them
-   while( out_Str = output->get_Next_Item() )
+   while( (out_Str = output->get_Next_Item()) )
    {
       char temp_Buf[ 512 ];
       char stripped_Str[ 160 ];

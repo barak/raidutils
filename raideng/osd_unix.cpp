@@ -386,45 +386,45 @@ DPT_RTN_T osdIOrequest(uSHORT ioMethod)
        // device file, given that we wouldn't expect to be able to 
        // open it anyway).
        if(DefaultHbaDev->Flags == 0 )
-	 {
-	   // this entry was NOT initialized, so print an error message
-	   // (and bypass any attempts to open the file; we simply return
-	   // MSG_RTN_FAILED to the caller)
-	   FormatTimeString(TimeString,time(0));
-	   printf("\nosdIDrequest   : %s Fatal error, DefaultHbaDev does not point to an active controller.\n", TimeString);
-	   fflush(stdout);
-	 }
-       else {
+        {
+          // this entry was NOT initialized, so print an error message
+          // (and bypass any attempts to open the file; we simply return
+          // MSG_RTN_FAILED to the caller)
+          FormatTimeString(TimeString,time(0));
+          printf("\nosdIDrequest   : %s Fatal error, DefaultHbaDev does not point to an active controller.\n", TimeString);
+          fflush(stdout);
+        }
+        else {
 
-	 /* Try To Open The First Adapter Device */
+               /* Try To Open The First Adapter Device */
 
-	 for(Index = 0; Index < 20; ++Index)
-	   {
-	     FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
-	     if((FileID == -1)&&(errno == ENOENT))
-	       {
-		 sleep(1);
-	       }
-	     else {
-	       break;
-	     }
-	   }
+               for(Index = 0; Index < 20; ++Index)
+                {
+                  FileID = open(DefaultHbaDev->NodeName,O_RDONLY);
+                  if((FileID == -1)&&(errno == ENOENT))
+                   {
+                     sleep(1);
+                   }
+                   else {
+                          break;
+                   }
+                }
 
 #ifdef _SINIX_ADDON
-	 if (DemoMode)
-	   FileID = 99;
+               if (DemoMode)
+                   FileID = 99;
 #endif
-	 if(FileID != -1)
-	   {
-	     retVal = MSG_RTN_COMPLETED;
-	     close(FileID);
-	   }
-	 else printf("\nosdIOrequest : File %s Could Not Be Opened",
-		     DefaultHbaDev->NodeName);
-       }
+               if(FileID != -1)
+                 {
+                   retVal = MSG_RTN_COMPLETED;
+                   close(FileID);
+                 }
+               else printf("\nosdIOrequest : File %s Could Not Be Opened",
+                             DefaultHbaDev->NodeName);
+        }
      }
    if(Verbose)
-     printf("\nosdIOrequest   : Return = %x",retVal);
+        printf("\nosdIOrequest   : Return = %lx",(unsigned long)retVal);
    return(retVal);
  }
 /* osdIOrequest() - end  */
@@ -536,8 +536,8 @@ DPT_RTN_T osdOpenEngine(void)
      {
         FormatTimeString(TimeString,time(0));
 
-        printf("\nosdOpenEngine  : %s Return = %x - %d hbas found",
-               TimeString,retVal,NumHBAs);
+        printf("\nosdOpenEngine  : %s Return = %lx - %d hbas found",
+               TimeString,(unsigned long)retVal,NumHBAs);
 
         fflush(stdout);
      }
@@ -582,7 +582,7 @@ DPT_RTN_T osdCloseEngine(void)
    if(Verbose)
      {
         FormatTimeString(TimeString,time(0));
-        printf("\nosdCloseEngine : %s Return = %x",TimeString,retVal);
+        printf("\nosdCloseEngine : %s Return = %lx",TimeString,(unsigned long)retVal);
         fflush(stdout);
      }
    return (retVal);
@@ -754,7 +754,7 @@ DPT_RTN_T osdGetDrvrSig(uSHORT ioMethod,dpt_sig_S *sig_P, uLONG *numSigs)
   if(Verbose)
     {
       FormatTimeString(TimeString,time(0));
-      printf("\nosdGetDrvrSig  : %s Return = %x",TimeString,retVal);
+      printf("\nosdGetDrvrSig  : %s Return = %lx",TimeString,(unsigned long)retVal);
       fflush(stdout);
     }
 
@@ -850,7 +850,7 @@ DPT_RTN_T osdSendCCB(uSHORT ioMethod,dptCCB_S *ccb_P)
                           ccb_P->eataCP.nestedFW & 0x0ff,
                           ccb_P->eataCP.physical & 0x0ff);
            printf(
-  "\n                 ScsiAddr = (%.1x,%.1x,%.1x,%.1x), ReqLen = %.2X, DataLen = %.2X",
+  "\n                 ScsiAddr = (%.1x,%.1x,%.1x,%.1x), ReqLen = %.2X, DataLen = %.2lX",
                           ccb_P->ctlrNum,
                           (ccb_P->eataCP.devAddr >> 5) & 0x0ff,
                           ccb_P->eataCP.devAddr & 0x01f,
@@ -977,7 +977,7 @@ DPT_RTN_T osdSendCCB(uSHORT ioMethod,dptCCB_S *ccb_P)
    if(Verbose)
     {
       FormatTimeString(TimeString,time(0));
-      printf("\nosdSendCCB     : %s Return = %x",TimeString,retVal);
+      printf("\nosdSendCCB     : %s Return = %lx",TimeString,(unsigned long)retVal);
       fflush(stdout);
     }
    return (retVal);
@@ -1050,8 +1050,8 @@ DPT_RTN_T osdSendMessage(uLONG HbaNum, PI2O_MESSAGE_FRAME UserStdMessageFrame_P,
       {
         if(!HbaDevs[HbaNum].IoAddress)
          {
-           printf("\nosdSendMessage : IoAddress is zero for HbaNum=%d\n",
-                   HbaNum);
+           printf("\nosdSendMessage : IoAddress is zero for HbaNum=%ld\n",
+                   (unsigned long)HbaNum);
          }
       }
 
@@ -1343,7 +1343,7 @@ DPT_RTN_T osdSendMessage(uLONG HbaNum, PI2O_MESSAGE_FRAME UserStdMessageFrame_P,
   if(Verbose)
    {
      FormatTimeString(TimeString,time(0));
-     printf("\nosdSendMessage : %s Return = %x",TimeString,retVal);
+     printf("\nosdSendMessage : %s Return = %lx",TimeString,(unsigned long)retVal);
    }
   return(retVal);
 
@@ -1945,7 +1945,7 @@ int _osdStartI2OCp(Controller_t controller, OutGoing_t packet,
   if(Verbose)
    {
      FormatTimeString(TimeString,time(0));
-     printf("\n_osdStartCp    : %s Enter, callback = %x",TimeString,callback);
+     printf("\n_osdStartCp    : %s Enter, callback = %lx",TimeString,(unsigned long)callback);
    }
 
   //
@@ -2059,7 +2059,7 @@ DPT_RTN_T osdGetCtlrs(uSHORT ioMethod,uSHORT *numCtlrs_P,
    if(Verbose)
      {
         FormatTimeString(TimeString,time(0));
-        printf("\nosdGetCtlrs    : %s Enter ",TimeString,retVal);
+        printf("\nosdGetCtlrs    : %s Enter, Return = %ld ",TimeString,(unsigned long)retVal);
         fflush(stdout);
      }
 
@@ -2320,7 +2320,7 @@ DPT_RTN_T osdGetCtlrs(uSHORT ioMethod,uSHORT *numCtlrs_P,
    if(Verbose)
      {
         FormatTimeString(TimeString,time(0));
-        printf("\nosdGetCtlrs    : %s Return = %x",TimeString,retVal);
+        printf("\nosdGetCtlrs    : %s Return = %lx",TimeString,(unsigned long)retVal);
         fflush(stdout);
      }
 
@@ -2610,7 +2610,7 @@ DPT_RTN_T osdGetSysInfo(sysInfo_S *SysInfo_P)
   if(Verbose)
     {
       FormatTimeString(TimeString,time(0));
-      printf("\nosdGetSysInfo  : %s Return = %d",TimeString,retVal);
+      printf("\nosdGetSysInfo  : %s Return = %ld",TimeString,(unsigned long)retVal);
       fflush(stdout);
     }
   return (retVal);
@@ -2931,8 +2931,8 @@ DPT_RTN_T osdLoggerCmd( DPT_MSG_T cmd, void *data_P, void *fromLoggerData_P,
      {
        FormatTimeString(TimeString,time(0));
        printf(
-        "\nosdLoggerCmd   : %s Cmd = %x,ioMethod = %x,LoggerID = %x,Hba = %x",
-        TimeString,cmd,ioMethod,LoggerID,hbanum);
+        "\nosdLoggerCmd   : %s Cmd = %lx,ioMethod = %x,LoggerID = %lx,Hba = %lx",
+        TimeString,(unsigned long)cmd,ioMethod,LoggerID,hbanum);
         fflush(stdout);
      }
 
@@ -3418,7 +3418,7 @@ DPT_RTN_T osdLoggerCmd( DPT_MSG_T cmd, void *data_P, void *fromLoggerData_P,
    if(Verbose)
      {
        FormatTimeString(TimeString,time(0));
-       printf("\n               : %s Return = %x",TimeString,retVal);
+       printf("\n               : %s Return = %lx",TimeString,(unsigned long)retVal);
        fflush(stdout);
      }
    return (retVal);
@@ -3456,7 +3456,7 @@ void *osdAllocIO(uLONG size)
    if(Verbose)
      {
        FormatTimeString(TimeString,time(0));
-       printf("\nosdAllocIO     : %s Return = %x",TimeString,Rtnval);
+       printf("\nosdAllocIO     : %s Return = %lx",TimeString,(unsigned long)Rtnval);
        fflush(stdout);
      }
 
@@ -3490,7 +3490,7 @@ void osdFreeIO(void *buff_P)
    if(Verbose)
      {
        FormatTimeString(TimeString,time(0));
-       printf("\nosdFreeIO      : %s Buf = %x",TimeString,buff_P);
+       printf("\nosdFreeIO      : %s Buf = %lx",TimeString,(unsigned long)buff_P);
        fflush(stdout);
      }
 
@@ -3644,7 +3644,7 @@ DPT_RTN_T  osdCheckBLED(uSHORT ctlrNum, uSHORT *ledPattern)
   if(Verbose)
     {
       FormatTimeString(TimeString,time(0));
-      printf("\nosdCheckBLED   : %s Return = %d",TimeString,retVal);
+      printf("\nosdCheckBLED   : %s Return = %ld",TimeString,(unsigned long)retVal);
       fflush(stdout);
     }
   return (retVal);
@@ -3786,33 +3786,33 @@ uSHORT BuildNodeNameList(void)
      // one we find, add a corresponding entry in HbaDevs.
      for(i = 0; i < MAX_I2O_CONTROLLERS; i ++) {
        if ( LinuxI2ODataBuff[i] != 0  ) 
-        {
-          if(NumEntries >= MAX_HAS)
-	    {
-	      FormatTimeString(TimeString,time(0));
+         {
+           if(NumEntries >= MAX_HAS)
+	     {
+	       FormatTimeString(TimeString,time(0));
 
-	      printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
-		     TimeString, MAX_HAS);
+	       printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
+		      TimeString, MAX_HAS);
 
-	      fflush(stdout);
-	      break;
-            }
-          if(Verbose)
-            {
-              FormatTimeString(TimeString,time(0));
+	       fflush(stdout);
+	       break;
+             }
+           if(Verbose)
+             {
+               FormatTimeString(TimeString,time(0));
 
-              printf("\nBuildNodeNameList  : %s Found Linux I2O Controler, using %s device file for utility-relative controller number %d.",
-                     TimeString, DEV_CTL, NumEntries);
+               printf("\nBuildNodeNameList  : %s Found Linux I2O Controler, using %s device file for utility-relative controller number %d.",
+                      TimeString, DEV_CTL, NumEntries);
 
-              fflush(stdout);
-            }
+               fflush(stdout);
+             }
 
-          HbaDevs[NumEntries].Flags = NODE_FILE_VALID_HBA_B | NODE_FILE_I2O_HBA_B;
-          HbaDevs[NumEntries].IoAddress = UINTPTR_MAX;
-          strcpy(HbaDevs[NumEntries].NodeName, DEV_CTL);
+           HbaDevs[NumEntries].Flags = NODE_FILE_VALID_HBA_B | NODE_FILE_I2O_HBA_B;
+           HbaDevs[NumEntries].IoAddress = UINTPTR_MAX;
+           strcpy(HbaDevs[NumEntries].NodeName, DEV_CTL);
 
-          ++NumEntries;
-        }
+           ++NumEntries;
+         }
        else {
 	 // for now, we'll assume that all the active IOP entries
 	 // are at the front of the returned buffer.  In order to

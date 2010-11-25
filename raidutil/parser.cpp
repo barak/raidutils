@@ -41,8 +41,8 @@
 * $Revision$
 * $NoKeywords: $
 * $Log$
-* Revision 1.2  2008-02-03 13:58:55  bap
-* patch memory leak
+* Revision 1.1.1.1  2004-04-29 10:20:12  bap
+* Imported upstream version 0.0.4. 
 *
 *****************************************************************************/
 

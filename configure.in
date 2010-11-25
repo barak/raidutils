@@ -1,17 +1,18 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.57)
-AC_INIT([DPT RAID Utilities], 0.0.6)
+AC_PREREQ([2.67])
+AC_INIT([I2O RAID Utilities],[0.0.6])
 AC_CONFIG_SRCDIR([config.h.in])
-AM_CONFIG_HEADER([config.h])
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE
 
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
-AC_PROG_LIBTOOL
+LT_INIT
 
 # Checks for libraries.
 
@@ -42,7 +43,7 @@ AC_PROG_GCC_TRADITIONAL
 AC_FUNC_MALLOC
 AC_FUNC_MEMCMP
 AC_FUNC_REALLOC
-AC_TYPE_SIGNAL
+
 AC_FUNC_STAT
 AC_FUNC_VPRINTF
 AC_CHECK_FUNCS([alarm atexit dup2 memset strchr strcspn strpbrk strrchr strspn strstr strtol strtoul sysinfo uname])

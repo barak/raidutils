@@ -188,7 +188,7 @@ extern dpt_sig_S engineSig;
 
 /***************************** Main Entry Point *****************************/
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
   {
     int Rtnval;
     int Done;
@@ -265,7 +265,7 @@ main(int argc, char *argv[])
 		else if (i == ERR_CONN_LIST_ALLOC)
 			printf("Alloc Connection List ");
 		else
-			printf(" With Unknown Error %x", i);
+			printf(" With Unknown Error %lx", (unsigned long)i);
 		printf("Failed\n");
 	}
 
@@ -410,7 +410,7 @@ main(int argc, char *argv[])
         // At the top of the loop, we will pull off and process all turnaround messages on the queue since
         // they don't have to be sent down to the engine
         //
-        while(Rtnval = msgrcv(MsqID,(struct msgbuf *)&HdrBuff, MsgDataSize, DPT_TurnAroundKey,IPC_NOWAIT) != -1)
+        while((Rtnval = (msgrcv(MsqID,(struct msgbuf *)&HdrBuff, MsgDataSize, DPT_TurnAroundKey,IPC_NOWAIT) != -1)))
          {
            Done = ProcessTurnAroundMessage(&HdrBuff);
          }
@@ -447,8 +447,8 @@ main(int argc, char *argv[])
          // Done is not set, so wait for a message to come in
          //
          else {
-                while(Rtnval = msgrcv(MsqID,(struct msgbuf *)&HdrBuff,
-                                      MsgDataSize, -DPT_EngineKey,0) == -1)
+                while((Rtnval = (msgrcv(MsqID,(struct msgbuf *)&HdrBuff,
+                                      MsgDataSize, -DPT_EngineKey,0) == -1)))
                  {
 
   /* If The Message Failed, And The Reason Was Not An Interrupt, Exit */
@@ -470,7 +470,7 @@ main(int argc, char *argv[])
              {
               if(Verbose)
                {
-                 printf("\n               : Message received for PID %d : no process found, discarding",
+                 printf("\n               : Message received for PID %ld : no process found, discarding",
                          HdrBuff.callerID);
                }
                continue;
@@ -501,11 +501,13 @@ main(int argc, char *argv[])
                      FormatTimeString(TimeString,time(0));
                      printf("\nEngine Calls   : %s DPT_CallEngine",TimeString);
                      printf( 
-                   "\n                 EngTag = %x, Event = %x, Target = %x",
-                       HdrBuff.engineTag,HdrBuff.engEvent,HdrBuff.targetTag);
+                   "\n                 EngTag = %lx, Event = %lx, Target = %lx",
+                       (unsigned long)HdrBuff.engineTag,
+                       (unsigned long)HdrBuff.engEvent,
+                       (unsigned long)HdrBuff.targetTag);
                      printf( 
-                   "\n                 Offset = %x fromEng_P = %x toEng_P = %x",
-		       HdrBuff.FromEngBuffOffset, fromEng_P, toEng_P);
+                   "\n                 Offset = %lx fromEng_P = %lx toEng_P = %lx",
+		       HdrBuff.FromEngBuffOffset, (unsigned long)fromEng_P, (unsigned long)toEng_P);
 /*#else
                       "\n                 EngTag = %x, Event = %x, Target = %x",
                        HdrBuff.engineTag,HdrBuff.engEvent,HdrBuff.targetTag);
@@ -534,7 +536,7 @@ main(int argc, char *argv[])
                   {
                    if(Verbose)
                     {
-                      printf("\n               : Returning message for PID %d : no process found, discarding",
+                      printf("\n               : Returning message for PID %ld : no process found, discarding",
                              HdrBuff.callerID);
                     }
                    continue;
@@ -687,7 +689,7 @@ int ProcessTurnAroundMessage(MsgHdr *HdrBuff_P)
    else {
        if(Verbose)
          {
-           printf("\n               : Returning message for PID %d : no process found, discarding",
+           printf("\n               : Returning message for PID %ld : no process found, discarding",
                   HdrBuff_P->callerID);
          }
   }
@@ -909,7 +911,7 @@ void DisplayHelp(void)
 #else
 void DisplayHelp(void)
   {
-    printf("The Parameters For This Program Are :\n");
+    printf("The Pramaters For This Program Are :\n");
     printf(
 "  /VERBOSE            :  Display All Connection And Message Information\n");
     printf(

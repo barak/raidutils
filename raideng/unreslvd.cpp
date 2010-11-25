@@ -34,7 +34,7 @@ extern "C"
    char *__nw__FUi(int size)
    {
         char *p;
-	p = (char *)malloc((size_t)size);
+        p = (char *)malloc((size_t)size);
         return(p);
    }
 

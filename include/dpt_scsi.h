@@ -757,7 +757,7 @@
    void         setLba(uLONG inLong) { setU1(this,3,inLong);
                                        setU1(this,2,inLong >> 8);
                                        setU1(this,1,((inLong >> 16L) & 0x1F)
-                                        | ((scReadWrite6_S __FAR__ *)(this))->getLun() & 0xE0); }
+                                        | (((scReadWrite6_S __FAR__ *)(this))->getLun() & 0xE0)); }
 #  define scReadWrite6_setLba(this,inLong) ((scReadWrite6_S __FAR__ *)(this))->setLba(inLong)
 
    uSHORT       getLength() { return getU1(this,4); }
