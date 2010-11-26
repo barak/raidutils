@@ -48,6 +48,8 @@ AC_FUNC_STAT
 AC_FUNC_VPRINTF
 AC_CHECK_FUNCS([alarm atexit dup2 memset strchr strcspn strpbrk strrchr strspn strstr strtol strtoul sysinfo uname])
 
+AM_PROG_CC_C_O
+
 AC_CONFIG_FILES([Makefile
                  raideng/Makefile
                  raidutil/Makefile
