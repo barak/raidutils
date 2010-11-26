@@ -1,106 +1,15 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
 
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+build clean install binary-arch binary-indep binary:
+	dh $@ --with autotools_dev
 
+.PHONY: build clean install binary-arch binary-indep binary
 
-# These are used for cross-compiling and for saving the configure script
-# from having to guess our platform (since we know it already)
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-DEB_BUILD_ARCH      ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
+WARNFLAGS = -Wall -Wno-write-strings -Wno-comments
 
-CFLAGS = -Wall -Wno-write-strings -Wno-comments -g
-CXXFLAGS = -Wall -Wno-write-strings -Wno-comments -g
+override_dh_auto_configure:
+	dh_auto_configure -- CFLAGS="$(WARNFLAGS)" CXXFLAGS="$(WARNFLAGS)"
 
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-CFLAGS += -O0
-else
-CFLAGS += -O2
-endif
-
-ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-INSTALL_PROGRAM += -s
-endif
-
-config.status: configure
-	dh_testdir
-	CFLAGS="$(CFLAGS)" CXXFLAGS="$(CXXFLAGS)" ./configure \
-	 --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) \
-	 --prefix=/usr --mandir=\$${prefix}/share/man \
-	 --infodir=\$${prefix}/share/info
-
-build: build-stamp
-
-build-stamp:  config.status
-	dh_testdir
-	$(MAKE)
-	touch build-stamp
-
-clean:
-	dh_testdir
-	rm -f build-stamp 
-	[ ! -f Makefile ] || $(MAKE) distclean
-ifneq "$(wildcard /usr/share/misc/config.sub)" ""
-	cp -f /usr/share/misc/config.sub config.sub
-endif
-ifneq "$(wildcard /usr/share/misc/config.guess)" ""
-	cp -f /usr/share/misc/config.guess config.guess
-endif
-	dh_clean 
-
-install: build
-	dh_testdir
-	dh_clean -k 
-	dh_installdirs
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/dpt-i2o-raidutils
-# bashism: -rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.{a,la,so}
-	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.a
-	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.la
-	-rm -f debian/dpt-i2o-raidutils/usr/lib/libraidutil.so
-	ln -s raidutil debian/dpt-i2o-raidutils/usr/bin/dpt-i2o-raidutil
-	ln -s raideng  debian/dpt-i2o-raidutils/usr/bin/dpt-i2o-raideng
-
-
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs --no-package=raidutils ChangeLog
-	dh_installchangelogs --package=raidutils
-	dh_installdocs $(shell test -s README && echo README)
-	dh_installexamples
-#	dh_install
-#	dh_installmenu
-#	dh_installdebconf	
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-#	dh_installinit
-#	dh_installcron
-#	dh_installinfo
-	dh_installman
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-#	dh_perl
-#	dh_python
-	dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install 
+override_dh_installchangelogs:
+	dh_installchangelogs --package=raidutils -XChangeLog
+	dh_installchangelogs --no-package=raidutils
