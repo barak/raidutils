@@ -2,6 +2,7 @@
 *.o
 .deps/
 .libs/
+/*.dh-orig
 /autom4te.cache/
 /build-stamp
 /config.h
