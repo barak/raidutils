@@ -1,13 +1,29 @@
-raidutils (0.0.6-14) UNRELEASED; urgency=low
+raidutils (0.0.6-16) unstable; urgency=low
+
+  * do not declare exit(), thereby fixing FTBS on SPARC
+  * dh --parallel (debian/rules)
+  * put executables in /usr/sbin/
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 28 Nov 2010 21:48:03 +0000
+
+raidutils (0.0.6-15) unstable; urgency=low
+
+  * dependency on autotools-dev for dh --with autotools_dev (closes: #605225)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 28 Nov 2010 10:57:08 +0000
+
+raidutils (0.0.6-14) unstable; urgency=low
 
   * swizzle in re-patched 64-bit-clean upstream sources
     - attempt to keep changes minimal and transparent
     - remove 32-bit options on amd64 (debian/rules)
     - remove 32-bit amd64 build support dependencies (debian/control)
+    - remove other unneeded compiler options like -fpermissive (debian/rules)
   * silence noisy warnings so real ones are visible (debian/rules)
   * minor warning-silencing patches (parens, printf format tweaks)
+  * modernise build scripts (debian/rules & support files)
 
- -- Barak A. Pearlmutter <bap@debian.org>  Fri, 26 Nov 2010 11:26:03 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 26 Nov 2010 15:24:37 +0000
 
 raidutils (0.0.6-13) unstable; urgency=low
 
