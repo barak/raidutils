@@ -1,4 +1,4 @@
-?package(dpt-i2o-raidutils):needs=text section="Applications/System/Administration"\
+?package(dpt-i2o-raidutils):needs="text" section="Applications/System/Administration"\
   title="DPT I2O Raid Utility" command="/usr/sbin/raidutil"
 ?package(dpt-i2o-raidutils):needs="text" section="Applications/System/Administration"\
   title="DPT I2O Raid Engine" command="/usr/sbin/raideng"
