@@ -2240,13 +2240,6 @@ void Command::MakeArrayOptimal(DPT_TAG_T arrayTag)
 }
 
 
-#ifdef sparc
-# define VOLATILE volatile
-#else
-# define VOLATILE
-#endif
-
-extern "C" { VOLATILE void exit (int);}
 
 void Command::Init_Engine(int scanHbasOnly)
 {
