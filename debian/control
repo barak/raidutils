@@ -26,9 +26,9 @@ Description: Adaptec I2O hardware RAID management utilities
  array, activate/silence the alarm, and query array/disk status.
 
 Package: raidutils
-Architecture: amd64 arm avr32 armeb armel hppa i386 m32r m68k mips mipsel powerpc powerpcspe s390 sh3 sh4 sparc sparc64
-Depends: dpt-i2o-raidutils
+Architecture: amd64 arm avr32 armeb armel hppa i386 m32r m68k mips mipsel powerpc powerpcspe s390 sh3 sh4 sparc sparc64 armhf
+Depends: dpt-i2o-raidutils, ${shlibs:Depends}, ${misc:Depends}
 Description: Transition Package for raidutils rename to dpt-i2o-raidutils
  The package previously named raidutils, used for manipulating some
  Adaptec I2O RAID hardware, has been renamed dpt-i2o-raidutils.  This
- package helps ease that transition.
+ dummy dependency package helps ease that transition.
