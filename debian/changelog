@@ -1,3 +1,9 @@
+raidutils (0.0.6-17) unstable; urgency=low
+
+  * architecture: any (debian/control)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 29 Nov 2010 13:10:59 +0000
+
 raidutils (0.0.6-16) unstable; urgency=low
 
   * do not declare exit(), thereby fixing FTBS on SPARC
