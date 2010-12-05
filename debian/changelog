@@ -1,3 +1,9 @@
+raidutils (0.0.6-18) unstable; urgency=low
+
+  * Proper GCC 4.5 FTBS fix (closes: #565084)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 05 Dec 2010 14:58:34 +0000
+
 raidutils (0.0.6-17) unstable; urgency=low
 
   * architecture: any (debian/control)
