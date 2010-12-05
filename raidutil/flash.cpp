@@ -179,13 +179,7 @@ Flash::Flash(
 Flash::Flash( const Flash &right )
 {
    ENTER( "Flash::Flash(" );
-
-#if defined _DPT_UNIXWARE || defined _DPT_SCO
    Flash( right.source, right.Resync, right.hba_Num );
-#else
-   Flash::Flash( right.source, right.Resync, right.hba_Num );
-#endif
-
    EXIT();
 }
 
