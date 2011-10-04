@@ -317,13 +317,13 @@ DPT_RTN_T	dptRAIDdev_C::okPermission(raidDef_S *&def_P)
 comp_P = comp1_P = (dptRAIDdev_C *) compList.reset();
 
 while ((comp_P!=NULL) && (retVal==MSG_RTN_COMPLETED)) {
-   if (!(def_P->permit & FLG_COMP_REMOVEABLE))
-      if (comp_P->isRemoveable())
-	   // Removeable media devices not permitted
+   if (!(def_P->permit & FLG_COMP_REMOVABLE))
+      if (comp_P->isRemovable())
+	   // Removable media devices not permitted
 	 retVal = MSG_RTN_FAILED | ERR_RAID_COMP_REMOVE;
    if (!(def_P->permit & FLG_COMP_EMULATED))
       if (comp_P->isEmulated())
-	   // Removeable media devices not permitted
+	   // Removable media devices not permitted
 	 retVal = MSG_RTN_FAILED | ERR_RAID_COMP_EMULATED;
    if (!(def_P->permit & FLG_COMP_ANY_TYPE))
       if (comp_P->getObjType()!=def_P->devType)

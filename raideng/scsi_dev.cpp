@@ -124,9 +124,9 @@ if (flg & FLG_DEV_EMULATED)
 if (flg & FLG_DEV_EMU_01)
    scsiFlags |= FLG_ENG_EMU_01;
 
-  // If removeable...
-if (flg & FLG_DEV_REMOVEABLE)
-   scsiFlags |= FLG_ENG_REMOVEABLE;
+  // If removable...
+if (flg & FLG_DEV_REMOVABLE)
+   scsiFlags |= FLG_ENG_REMOVABLE;
 
   // If a valid partition table exists...
 if (flg & FLG_DEV_PTABLE)
@@ -281,8 +281,8 @@ if (isEmulated())
    flg |= FLG_DEV_EMULATED;
 if (scsiFlags & FLG_ENG_EMU_01)
    flg |= FLG_DEV_EMU_01;
-if (isRemoveable())
-   flg |= FLG_DEV_REMOVEABLE;
+if (isRemovable())
+   flg |= FLG_DEV_REMOVABLE;
 if (isLogical())
    flg |= FLG_DEV_LOGICAL;
 if (scsiFlags & FLG_ENG_PTABLE)

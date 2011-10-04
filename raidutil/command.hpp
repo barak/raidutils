@@ -262,7 +262,7 @@ class Command
                     DPT_ERR_FWD_NOT_INITIALIZED = ERR_FWD_NOT_INITIALIZED,
                     DPT_ERR_FWD_BLK_MISMATCH    = ERR_FWD_BLK_MISMATCH,
                     DPT_ERR_FWD_BLK_OVERFLOW    = ERR_FWD_BLK_OVERFLOW,
-                    DPT_ERR_RSV_REMOVEABLE      = ERR_RSV_REMOVEABLE,
+                    DPT_ERR_RSV_REMOVABLE      = ERR_RSV_REMOVABLE,
                     DPT_ERR_RSV_NOT_DASD        = ERR_RSV_NOT_DASD,
                     DPT_ERR_RSV_NON_ZERO        = ERR_RSV_NON_ZERO,
                     DPT_ERR_RSV_HBA_UNABLE      = ERR_RSV_HBA_UNABLE,

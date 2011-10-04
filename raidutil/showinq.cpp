@@ -218,7 +218,7 @@ SHOW_PHYSICAL:
 				output.add_Item( "\n" );
 				output.add_Item(EventStrings[STR_REMOVABLE]);
 				output.add_Item( ":" );
-				output.add_Item( ( engine->devInfo_P->flags & FLG_DEV_REMOVEABLE)? EventStrings[STR_YES]:EventStrings[STR_NO]);
+				output.add_Item( ( engine->devInfo_P->flags & FLG_DEV_REMOVABLE)? EventStrings[STR_YES]:EventStrings[STR_NO]);
 				output.add_Item( "\n" );
 				break;
 
@@ -320,7 +320,7 @@ SHOW_PHYSICAL:
 	   			output.add_Item( ":" );
 					output.add_Item( obj_Type_Str );
 					output.add_Item( "\n" );
-					// output.add_Item( ( engine->devInfo_P->flags & FLG_DEV_REMOVEABLE )? STR_YES:STR_NO );
+					// output.add_Item( ( engine->devInfo_P->flags & FLG_DEV_REMOVABLE )? STR_YES:STR_NO );
 					output.add_Item( "\n" );
 					}
 				break;

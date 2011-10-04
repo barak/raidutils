@@ -249,8 +249,8 @@ protected:
 
      // Return object information in the specified output buffer
    virtual DPT_RTN_T	rtnInfo(dptBuffer_S *);
-     // Set removeable media flag
-   virtual void		setRemoveable() {}
+     // Set removable media flag
+   virtual void		setRemovable() {}
 
      // Set SAFTE flag
    virtual void		setSAFTE() {};

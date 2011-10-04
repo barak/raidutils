@@ -302,7 +302,7 @@ public:
    uLONG		genMagicNum();
      // Get a CCB to perform I/O
    engCCB_C *		acquireCCB();
-     // Reserve space at the end of all non-removeable DASD devices
+     // Reserve space at the end of all non-removable DASD devices
    void			reserveEndOfDisks();
      // Destroy block zero of all devices marked for partition table
      // zapping

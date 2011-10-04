@@ -496,7 +496,7 @@
 //              Errors downloading firmware
 //---------------------------------------------------------------------------
 
-  // There are no non-removeable DASD devices to store the FW code.
+  // There are no non-removable DASD devices to store the FW code.
 #define ERR_FWD_NO_SPACE        (0x01f0L | MSG_RTN_FAILED)
 
   // There are only DASD devices without sufficient space reserved
@@ -517,8 +517,8 @@
 //              Errors reserving disk space
 //---------------------------------------------------------------------------
 
-  // Cannot reserve disk space on a removeable media device
-#define ERR_RSV_REMOVEABLE      (0x0200L | MSG_RTN_FAILED)
+  // Cannot reserve disk space on a removable media device
+#define ERR_RSV_REMOVABLE       (0x0200L | MSG_RTN_FAILED)
   // Cannot reserve disk space on a non-DASD device
 #define ERR_RSV_NOT_DASD        (0x0201L | MSG_RTN_FAILED)
   // The # of blocks reserved must be greater than zero
