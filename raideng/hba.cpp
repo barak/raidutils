@@ -4020,7 +4020,7 @@ dptDevice_C *dev_P = (dptDevice_C *) logList.reset();
 while (dev_P) {
 	// If an unarrayed physical DASD device with no magic number...
    if ((dev_P->getLevel()==2) && (dev_P->getObjType()==DPT_SCSI_DASD) &&
-	  !dev_P->isComponent() && !dev_P->isRemoveable() &&
+	  !dev_P->isComponent() && !dev_P->isRemovable() &&
 	  !dev_P->getMagicNum()) {
 
 	// Attempt to set the physical device's magic number

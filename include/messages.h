@@ -1656,7 +1656,7 @@
 #define   MSG_DOWNLOAD_FW          0x0076L
 //
 // Description:
-//   Downloads FW code to an HBA's non-removeable DASD devices.
+//   Downloads FW code to an HBA's non-removable DASD devices.
 //
 // Target Types:    0
 // Input Data:      Download cmd (uLONG)

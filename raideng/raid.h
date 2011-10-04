@@ -210,8 +210,8 @@ struct raidParent_S : public raidRange_S
 #define	FLG_REQ_SUPPRESS	0x8000
 
 //permit - bit definitions
-  // 1=Components can have removeable media
-#define	FLG_COMP_REMOVEABLE	0x0001
+  // 1=Components can have removable media
+#define	FLG_COMP_REMOVABLE	0x0001
   // 1=Components can be emulated drives
 #define FLG_COMP_EMULATED	0x0002
   // 1=Components must be from the same vendor

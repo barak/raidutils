@@ -504,7 +504,7 @@ while ((b_P[i]>=32) && (b_P[i]<=126)) {
 //
 //Description:
 //
-//    This function searches the specified list for a non-removeable
+//    This function searches the specified list for a non-removable
 //DASD device.
 //
 //Parameters:
@@ -528,9 +528,9 @@ dptObject_C *obj_P = (dptObject_C *) list.reset();
 while ((obj_P!=NULL) && !found) {
    if (obj_P->isManager())
       found = findDASD(((dptManager_C *)obj_P)->logList);
-     // If a non-removeable DASD device is present...
+     // If a non-removable DASD device is present...
    else if ((((dptDevice_C *)obj_P)->getObjType()==DPT_SCSI_DASD) &&
-	    !((dptDevice_C *)obj_P)->isRemoveable() )
+	    !((dptDevice_C *)obj_P)->isRemovable() )
       found = 1;
    obj_P = (dptObject_C *) list.next();
 } // end while (obj_P!=NULL)

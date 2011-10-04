@@ -263,8 +263,8 @@ const uLONG DPT_ENGINE_COMPATIBILITY   = 4;
   // 1=The device is emulated drive 1 (D:)
   // 0=The device is emulated drive 0 (C:)
 #define   FLG_DEV_EMU_01      0x0008
-  // 1=The device has removeable media
-#define   FLG_DEV_REMOVEABLE  0x0010
+  // 1=The device has removable media
+#define   FLG_DEV_REMOVABLE  0x0010
   // 1=The device originates in a logical device list
   // 0=The device originates in a physical object list
 #define FLG_DEV_LOGICAL       0x0020

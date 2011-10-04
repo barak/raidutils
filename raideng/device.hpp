@@ -144,8 +144,8 @@ const uSHORT	FLG_ENG_EMULATED	= 0x0001;
   // 1=The device is emulated drive 1 (D:)
   // 0=The device is emulated drive 0 (C:)
 const uSHORT	FLG_ENG_EMU_01		= 0x0002;
-  // 1=The device has removeable media
-const uSHORT	FLG_ENG_REMOVEABLE	= 0x0004;
+  // 1=The device has removable media
+const uSHORT	FLG_ENG_REMOVABLE	= 0x0004;
   // 1=The DPT name has not been saved to hardware
 const uSHORT	FLG_ENG_NEW_NAME	= 0x0008;
   // 1=A valid partition table was found on this device
@@ -222,9 +222,9 @@ protected:
      // Return object information in the specified output buffer
    virtual DPT_RTN_T	rtnInfo(dptBuffer_S *);
 
-     // Set removeable media flag
-   virtual void		setRemoveable() {
-			   scsiFlags |= FLG_ENG_REMOVEABLE;
+     // Set removable media flag
+   virtual void		setRemovable() {
+			   scsiFlags |= FLG_ENG_REMOVABLE;
 			}
 
      // Set SAF-TE flag
@@ -282,9 +282,9 @@ public:
 
 // Boolean Functions..................................
 
-     // Determines if the device has removeable media
-   uSHORT		isRemoveable() {
-			   return (scsiFlags & FLG_ENG_REMOVEABLE);
+     // Determines if the device has removable media
+   uSHORT		isRemovable() {
+			   return (scsiFlags & FLG_ENG_REMOVABLE);
 			}
      // Determines if the device is an emulated drive
    uSHORT		isEmulated() {

@@ -1415,8 +1415,8 @@ DPT_RTN_T       dptDevice_C::readReserveBlock(engCCB_C *ccb_P)
 
    DPT_RTN_T    retVal = MSG_RTN_IGNORED;
 
-  // If this is a non-removeable FW physical DASD device...
-if ((getObjType()==DPT_SCSI_DASD) && (getLevel()==2) && !isRemoveable() &&
+  // If this is a non-removable FW physical DASD device...
+if ((getObjType()==DPT_SCSI_DASD) && (getLevel()==2) && !isRemovable() &&
     (capacity.maxPhysLBA>0)) {
      // Initialize the CCB to perform a read operation
    ccb_P->read(capacity.maxPhysLBA,1,512,ptrToLong(ccb_P->dataBuff_P));
@@ -2462,8 +2462,8 @@ if ((status.display==DSPLY_STAT_OPTIMAL) &&
 if (isPhysical()) {
      // Perform a test unit ready cmd
    checkIfReady();
-     // If removeable media or no capacity info
-   if (isReady() && (isRemoveable() || (capacity.maxLBA == 0))) {
+     // If removable media or no capacity info
+   if (isReady() && (isRemovable() || (capacity.maxLBA == 0))) {
 	// Try to get the media capacity
       getCapacity();
 	// If valid capacity info...
@@ -2472,8 +2472,8 @@ if (isPhysical()) {
 	 initReserveBlockInfo();
    }
 
-	// if the device is not ready and it is not formatting (and not removeable)
-	if (!isReady() && !(status.main == PMAIN_STAT_FORMAT) && !isRemoveable()) {
+	// if the device is not ready and it is not formatting (and not removable)
+	if (!isReady() && !(status.main == PMAIN_STAT_FORMAT) && !isRemovable()) {
 	    status.display = DSPLY_STAT_MISSING;
 	    DEBUG(1, "Device " << PRT_ADDR << "set to missing" );
 	}
@@ -4338,7 +4338,7 @@ return (retVal);
 //
 //Description:
 //
-//    This function reserves space at the end of a non-removeable DASD
+//    This function reserves space at the end of a non-removable DASD
 //device for use by DPT.  This space is currently used for a reserve block,
 //a RAID table, and downloaded FW code.
 //
@@ -4375,7 +4375,7 @@ return(retVal);
 //
 //Description:
 //
-//    This function reserves space at the end of a non-removeable DASD
+//    This function reserves space at the end of a non-removable DASD
 //device for use by DPT.  This space is currently used for a reserve block,
 //a RAID table, and downloaded FW code.
 //
@@ -4402,8 +4402,8 @@ DPT_RTN_T       dptDevice_C::reserveEndOfDisk(uSHORT numBlocks)
 
    DPT_RTN_T    retVal;
 
-	if (isRemoveable())
-		retVal = MSG_RTN_FAILED | ERR_RSV_REMOVEABLE;
+	if (isRemovable())
+		retVal = MSG_RTN_FAILED | ERR_RSV_REMOVABLE;
 	else if (getObjType()!=DPT_SCSI_DASD)
 		retVal = MSG_RTN_FAILED | ERR_RSV_NOT_DASD;
 	else if (numBlocks==0)

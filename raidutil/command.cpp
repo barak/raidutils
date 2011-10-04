@@ -603,8 +603,8 @@ Command::Dpt_Error::operator    char *() const
 		 constant_Str = EventStrings[STR_ERR_FWD_BLK_OVERFLOW];
 		 break;
 
-		case DPT_ERR_RSV_REMOVEABLE:
-		 constant_Str = EventStrings[STR_ERR_RSV_REMOVEABLE];
+		case DPT_ERR_RSV_REMOVABLE:
+		 constant_Str = EventStrings[STR_ERR_RSV_REMOVABLE];
 		 break;
 
 		case DPT_ERR_RSV_NOT_DASD:

@@ -332,7 +332,7 @@ char * EventStrings[] =
 //     STR_STATUS                        = 160,
 //     STR_RAID_INFO                     = 161,
 //     STR_SCSI_INFO                     = 162,
-   "Removeable", // STR_REMOVABLE
+   "Removable", // STR_REMOVABLE
 //     STR_CAPABILITIES                  = 164,
 //     STR_REL_ADDR                      = 165,
    "wide",       // STR_WIDE
@@ -607,7 +607,7 @@ char * EventStrings[] =
    "Error: fwd not initialized",//STR_ERR_FWD_NOT_INITIALIZED 
    "Error: fwd blk mismatch",   //STR_ERR_FWD_BLK_MISMATCH   
    "Error: fwd blk overflow",   //STR_ERR_FWD_BLK_OVERFLOW   
-   "Error: rsv removeable",     //STR_ERR_RSV_REMOVEABLE     
+   "Error: rsv removable",     //STR_ERR_RSV_REMOVABLE     
    "Error: rsv not dasd",  //STR_ERR_RSV_NOT_DASD  
    "Error: rsv non zero",  //STR_ERR_RSV_NON_ZERO  
    "Error: rsv hba unable",//STR_ERR_RSV_HBA_UNABLE

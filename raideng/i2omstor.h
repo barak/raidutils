@@ -243,7 +243,7 @@ PRAGMA_PACK_PUSH
 #define I2O_BSA_DEV_CAP_MULTI_PATH          0x00000002
 #define I2O_BSA_DEV_CAP_DYNAMIC_CAPACITY    0x00000004
 #define I2O_BSA_DEV_CAP_REMOVABLE_MEDIA     0x00000008
-#define I2O_BSA_DEV_CAP_REMOVEABLE_DEVICE   0x00000010
+#define I2O_BSA_DEV_CAP_REMOVABLE_DEVICE   0x00000010
 #define I2O_BSA_DEV_CAP_READ_ONLY           0x00000020
 #define I2O_BSA_DEV_CAP_LOCKOUT             0x00000040
 #define I2O_BSA_DEV_CAP_BOOT_BYPASS         0x00000080
@@ -754,13 +754,13 @@ typedef U16     I2O_BSA_VERIFY_FLAGS;
 #define I2O_BSA_ERROR_CORRECTION        0x0040
 
 
-/* I2O BSA Removeable Media Identifier values */
+/* I2O BSA Removable Media Identifier values */
 
 typedef U32     I2O_BSA_MEDIA_ID;
 #define I2O_BSA_MEDIA_ID_CURRENT_MOUNTED    0xFFFFFFFF
 
 
-/* I2O BSA Removeable Media Load Flags */
+/* I2O BSA Removable Media Load Flags */
 
 typedef U8      I2O_BSA_LOAD_FLAGS;
 #define I2O_BSA_LOAD_FLAG_MEDIA_LOCK    0x80
@@ -869,7 +869,7 @@ typedef struct _I2O_BSA_DEVICE_RESET_MESSAGE {
 
 /****************************************************************************/
 
-/* I2O BSA Media Eject for Removeable Media Message Frame */
+/* I2O BSA Media Eject for Removable Media Message Frame */
 
 typedef struct _I2O_BSA_MEDIA_EJECT_MESSAGE {
     I2O_MESSAGE_FRAME       StdMessageFrame;
@@ -891,7 +891,7 @@ typedef struct _I2O_BSA_MEDIA_LOCK_MESSAGE {
 
 /****************************************************************************/
 
-/* I2O BSA Media Mount for Removeable Media Message Frame */
+/* I2O BSA Media Mount for Removable Media Message Frame */
 
 typedef struct _I2O_BSA_MEDIA_MOUNT_MESSAGE {
     I2O_MESSAGE_FRAME       StdMessageFrame;

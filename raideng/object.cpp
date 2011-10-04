@@ -121,9 +121,9 @@ memcpy(descr.productID,inq_P->getProductID(),16);
 memcpy(descr.revision,inq_P->getRevision(),4);
 memcpy(descr.vendorExtra,inq_P->getVendorExtra(),20);
 descr.terminate();
-  // Check for removeable media
+  // Check for removable media
 if (inq_P->getDevType() & DEVTYPE_RMB)
-   setRemoveable();
+   setRemovable();
 
 // look for SAF-TE in the vendor extra field or the product ID
 if (memcmp(inq_P->getVendorExtra()+8, "SAF-TE", 6) == 0)

@@ -465,7 +465,7 @@ DPT_RTN_T dptDriver_C::scanSystem(uSHORT searchType)
 
 		// Check for valid partition tables
 		findLSUpartitions();
-		// Attempt to reserve space at the end of every non-removeable
+		// Attempt to reserve space at the end of every non-removable
 		// disk for use by DPT
 		myConn_P()->reserveEndOfDisks();
 

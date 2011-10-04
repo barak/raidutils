@@ -176,7 +176,7 @@ return (ccb_P);
 //Description:
 //
 //    This function attempts to reserve space at the end of all non-
-//removeable DASD devices.  This space is used by DPT to store
+//removable DASD devices.  This space is used by DPT to store
 //configuration information, downloaded FW code...
 //
 //Parameters:
@@ -203,9 +203,9 @@ dptObject_C *obj_P = (dptObject_C *) objectList.reset();
 while (obj_P!=NULL) {
 	if (obj_P->isDevice()) {
 		dev_P = (dptDevice_C *) obj_P;
-		// If a non-removeable HBA physical DASD device...
+		// If a non-removable HBA physical DASD device...
 		if ((dev_P->getLevel()==2) && (dev_P->getObjType()==DPT_SCSI_DASD) &&
-		!dev_P->isComponent() && !dev_P->isRemoveable()) {
+		!dev_P->isComponent() && !dev_P->isRemovable()) {
 
 			// Determine how much space is currently reserved
 			spaceReserved = dev_P->getMaxPhyLBA() - dev_P->getLastLBA();
