@@ -1,3 +1,12 @@
+raidutils (0.0.6-19) unstable; urgency=low
+
+  * single-debian-patch source option (closes: #643259)
+  * new debian/rules targets to silence lintian 
+  * bump debian standards version
+  * the word is "removable", not "removeable"
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 05 Oct 2011 00:18:33 +0100
+
 raidutils (0.0.6-18) unstable; urgency=low
 
   * Proper GCC 4.5 FTBS fix (closes: #565084)
