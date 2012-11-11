@@ -1,11 +1,7 @@
 #!/usr/bin/make -f
 
-dh_targets=binary binary-arch binary-indep build build-arch build-indep clean install
-
-$(dh_targets) %:
-	dh $@ --parallel --with autotools_dev
-
-.PHONY: $(dh_targets)
+%:
+	dh $@ --parallel --with autoreconf
 
 WARNFLAGS = -Wall -Wno-write-strings -Wno-comments
 
