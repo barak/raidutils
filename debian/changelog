@@ -1,3 +1,9 @@
+raidutils (0.0.6-20) unstable; urgency=low
+
+  * multiarch fix
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 12 Nov 2012 08:38:19 +0000
+
 raidutils (0.0.6-19) unstable; urgency=low
 
   * single-debian-patch source option (closes: #643259)
