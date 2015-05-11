@@ -1,7 +1,8 @@
 /*.debhelper
-/*.dh-orig
 /*.log
 /*.substvars
+/autoreconf.after
+/autoreconf.before
 /dpt-i2o-raidutils/
 /files
 /raidutils/
