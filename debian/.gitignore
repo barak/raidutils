@@ -1,4 +1,5 @@
 /*.debhelper
+/*.dh-orig
 /*.log
 /*.substvars
 /dpt-i2o-raidutils/
