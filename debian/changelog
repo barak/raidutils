@@ -1,3 +1,11 @@
+raidutils (0.0.6-21) unstable; urgency=medium
+
+  * merge spelling correction and autotools tweaks
+  * bump debian standards
+  * stop using dh-exec
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 10 Nov 2015 21:33:45 +0000
+
 raidutils (0.0.6-20) unstable; urgency=low
 
   * multiarch fix
@@ -7,7 +15,7 @@ raidutils (0.0.6-20) unstable; urgency=low
 raidutils (0.0.6-19) unstable; urgency=low
 
   * single-debian-patch source option (closes: #643259)
-  * new debian/rules targets to silence lintian 
+  * new debian/rules targets to silence lintian
   * bump debian standards version
   * the word is "removable", not "removeable"
 
