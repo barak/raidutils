@@ -29,7 +29,7 @@ Description: Adaptec I2O hardware RAID management utilities
 Package: raidutils
 Architecture: all
 Depends: dpt-i2o-raidutils, ${shlibs:Depends}, ${misc:Depends}
-Description: Transition Package for raidutils rename to dpt-i2o-raidutils
- The package previously named raidutils, used for manipulating some
- Adaptec I2O RAID hardware, has been renamed dpt-i2o-raidutils.  This
- dummy dependency package helps ease that transition.
+Description: Transition Package, raidutils to dpt-i2o-raidutils
+ The Adaptec I2O RAID hardware utilities package has been renamed.
+ This dummy dependency package helps transition from raidutils to
+ dpt-i2o-raidutils.
