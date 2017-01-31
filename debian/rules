@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --parallel --with autoreconf
+	dh $@
 
 WARNFLAGS = -Wall -Wno-write-strings -Wno-comments
 
