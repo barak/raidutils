@@ -3,6 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper (>= 10),
+	       autoconf-archive,
 	       linux-libc-dev | linux-kernel-headers
 Standards-Version: 3.9.8
 Homepage: http://i2o.shadowconnect.com
