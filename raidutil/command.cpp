@@ -2149,7 +2149,7 @@ char *Command::Strip_Trailing_Whitespace( char *str )
 char Command::PrintAQuestion(char *str)
 {
    char Buffer[512];
-   fprintf(stderr, str);
+   fprintf(stderr, "%s", str);
    fgets(Buffer, sizeof(Buffer), stdin);
    return(Buffer[0]);
 }
