@@ -96,7 +96,7 @@ char * EventStrings[] =
 	"-e [soft|recov|nonrecov|status|delete|board|?|-?] d@View the controller's event log", //STR_USAGE_VIEW_LOG
 	"-f [optimal|fail|?|-?] d@Force an array member drive to Failed state, or force an array to Optimal state", //STR_USAGE_FORCE_STATE
 	"-K@Report on cluster support enabled/disabled", //STR_USAGE_CLUSTER_SUPPORT
-	"Commmand Usage Examples:               ~", //STR_USAGE_SAMPLE_TITLE
+	"Command Usage Examples:                ~", //STR_USAGE_SAMPLE_TITLE
 	"-q@Quiet mode", //STR_USAGE_SAMPLE_QUIET_MODE
 	"-?@Display usage screen", //STR_USAGE_SAMPLE_SHOW_USAGE
 #if !defined _DPT_SOLARIS

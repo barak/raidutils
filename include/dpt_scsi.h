@@ -5712,7 +5712,7 @@ const uCHAR FLG_SOC_ASK_TO_BOOT = 0x01;
         uSHORT          setSOCforceAccess(uCHAR chan, uSHORT inShort)   { return setU2(this,72+(2*chan),inShort); }
         void                    swapSOCforceAccess(uCHAR chan)                                          { osdSwap2((uSHORT __FAR__ *)getUP1(this,72+(2*chan))); }
 
-        // get the ID of the remote controler on chan X
+        // get the ID of the remote controller on chan X
         uCHAR                   getRemoteSOCid(uCHAR chan)
                 {
                         uCHAR rtnVal;

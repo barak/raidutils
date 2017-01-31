@@ -15,6 +15,15 @@ AC_PROG_CPP
 AM_PROG_AR
 LT_INIT
 
+AX_CFLAGS_WARN_ALL
+AX_CHECK_COMPILE_FLAG([-Wno-write-strings], [CFLAGS="$CFLAGS -Wno-write-strings"])
+AX_CHECK_COMPILE_FLAG([-Wno-comments], [CFLAGS="$CFLAGS -Wno-comments"])
+AC_LANG([C++])
+AX_CXXFLAGS_WARN_ALL
+AX_CHECK_COMPILE_FLAG([-Wno-write-strings], [CXXFLAGS="$CXXFLAGS -Wno-write-strings"])
+AX_CHECK_COMPILE_FLAG([-Wno-comments], [CXXFLAGS="$CXXFLAGS -Wno-comments"])
+AC_LANG([C])
+
 # Checks for libraries.
 
 # Checks for header files.

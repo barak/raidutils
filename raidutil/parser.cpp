@@ -386,7 +386,7 @@ Parser::Parser(
                         // default is NOT to resync
                         // change later when bad cache issue corrected.
 
-                        if (command_Line !='\0')
+                        if (command_Line != 0)
                         {
                            // see if resync is set on/enable
                            if (isdigit(*string_Arg))
@@ -960,7 +960,7 @@ WE_CAN_WRITE_CACHE:
                     // change later when bad cache issue corrected.
                     int resync = 0;
 
-                    if (command_Line !='\0')
+                    if (*command_Line != 0)
                     {
                         // see if resync is set on/enable
                         if (is_Int_Arg)
@@ -1590,7 +1590,7 @@ END_OF_VERB:
                         // change later when bad cache issue corrected.
                         int resync = 0;
 
-                        if (command_Line !='\0')
+                        if (*command_Line != 0)
                         {
                             // see if resync is set on/enable
                         command_Line = TranslateNext(command_Line, &resync);

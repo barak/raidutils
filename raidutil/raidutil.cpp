@@ -462,7 +462,7 @@ void Flush ( String_List * output )
             PressAnyKeyToContinue();  // netware only
 #else         
             // hey, wait a minute for next page!!!
-            printf(EventStrings[STR_PRESS_ENTER2_CONT]);
+            printf("%s", EventStrings[STR_PRESS_ENTER2_CONT]);
             int key = getchar();
 #endif            
          }

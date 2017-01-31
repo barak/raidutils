@@ -212,7 +212,7 @@ Command::Dpt_Error	Zap::execute( String_List **output )
 		char Buffer[ 512 ];
 
 #if !defined _DPT_NETWARE
-      fprintf (stderr, EventStrings[STR_RU_SURE_TO_ZAP]);
+      fprintf (stderr, "%s", EventStrings[STR_RU_SURE_TO_ZAP]);
 		fgets (Buffer, sizeof(Buffer), stdin);
 		if (( Buffer[0] != *char1 ) && ( Buffer[0] != *(char1+1)))
 		{
@@ -279,8 +279,8 @@ Command::Dpt_Error	Zap::execute( String_List **output )
                         PrintRaidAddress(component_Tag, out);
          				(*output)->add_Item("\n");
 					    Flush( *output );
-    	            	fprintf (stderr, EventStrings[STR_DRIVE_IS_BUSY]);
-                     fprintf (stderr, EventStrings[STR_RU_SURE_TO_ZAP]);
+    	            	fprintf (stderr, "%s", EventStrings[STR_DRIVE_IS_BUSY]);
+                     fprintf (stderr, "%s", EventStrings[STR_RU_SURE_TO_ZAP]);
 	    	            fgets (Buffer, sizeof(Buffer), stdin);
                		if (( Buffer[0] != *char1 ) && ( Buffer[0] != *(char1+1)))
                 		{
