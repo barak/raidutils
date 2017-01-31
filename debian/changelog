@@ -1,3 +1,14 @@
+raidutils (0.0.6-22) unstable; urgency=medium
+
+  * bump debian standards
+  * dh10
+  * harden
+  * build dependency for AX_ autoconf macros
+  * patch away some compiler warnings
+  * patch away GCC-7 compilation error (closes: #853636)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 31 Jan 2017 11:46:41 +0000
+
 raidutils (0.0.6-21) unstable; urgency=medium
 
   * merge spelling correction and autotools tweaks
