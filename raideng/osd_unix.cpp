@@ -3791,7 +3791,7 @@ uSHORT BuildNodeNameList(void)
 	     {
 	       FormatTimeString(TimeString,time(0));
 
-	       printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controlers; ignoring those that won't fit in the HbaDevs array.",
+	       printf("\nBuildNodeNameList  : %s Warning: Found more than %d Linux I2O Controllers; ignoring those that won't fit in the HbaDevs array.",
 		      TimeString, MAX_HAS);
 
 	       fflush(stdout);
@@ -3801,7 +3801,7 @@ uSHORT BuildNodeNameList(void)
              {
                FormatTimeString(TimeString,time(0));
 
-               printf("\nBuildNodeNameList  : %s Found Linux I2O Controler, using %s device file for utility-relative controller number %d.",
+               printf("\nBuildNodeNameList  : %s Found Linux I2O Controller, using %s device file for utility-relative controller number %d.",
                       TimeString, DEV_CTL, NumEntries);
 
                fflush(stdout);
