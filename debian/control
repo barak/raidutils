@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper (>= 10),
 	       linux-libc-dev | linux-kernel-headers
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://i2o.shadowconnect.com
 Vcs-Git: git://anonscm.debian.org/collab-maint/raidutils.git
 Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/raidutils.git
