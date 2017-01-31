@@ -112,7 +112,6 @@ Command::Dpt_Error Config::execute (String_List **output)
 
 	int		dev_Index = 0;
 	bool	more_Devs_Left = true;
-	bool	first_time_through = true;
 	bool	cluster_ON = false;
 
 	for(dev_Index = 0; more_Devs_Left && !err.Is_Error(); dev_Index ++){
