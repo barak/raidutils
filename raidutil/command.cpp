@@ -2252,8 +2252,8 @@ void Command::Init_Engine(int scanHbasOnly)
       {
          engine->Disconnect();
          engine->Close();
-         printf (EventStrings[STR_ENG_CONN_FAILED]);
-         printf (EventStrings[STR_COLON_OPEN]);
+         printf ("%s", EventStrings[STR_ENG_CONN_FAILED]);
+         printf ("%s", EventStrings[STR_COLON_OPEN]);
          exit (1);  // exit with error
       }
 
@@ -2269,8 +2269,8 @@ void Command::Init_Engine(int scanHbasOnly)
       {
          engine->Disconnect();
          engine->Close();
-         printf (EventStrings[STR_ENG_CONN_FAILED]);
-         printf (EventStrings[STR_COLON_COMPAT_NBR]);
+         printf ("%s", EventStrings[STR_ENG_CONN_FAILED]);
+         printf ("%s", EventStrings[STR_COLON_COMPAT_NBR]);
          exit (1);  // exit with error
       }
 #endif
@@ -2281,8 +2281,8 @@ void Command::Init_Engine(int scanHbasOnly)
          {
             engine->Disconnect();
             engine->Close();
-            printf (EventStrings[STR_ENG_CONN_FAILED]);
-            printf (EventStrings[STR_COLON_SCAN_FAILED]);
+            printf ("%s", EventStrings[STR_ENG_CONN_FAILED]);
+            printf ("%s", EventStrings[STR_COLON_SCAN_FAILED]);
             exit (1);  // exit with error
          }
       }
@@ -2292,8 +2292,8 @@ void Command::Init_Engine(int scanHbasOnly)
          {
             engine->Disconnect();
             engine->Close();
-            printf (EventStrings[STR_ENG_CONN_FAILED]);
-            printf (EventStrings[STR_COLON_SCAN_FAILED]);
+            printf ("%s", EventStrings[STR_ENG_CONN_FAILED]);
+            printf ("%s", EventStrings[STR_COLON_SCAN_FAILED]);
             exit (1);  // exit with error
          }
       }
