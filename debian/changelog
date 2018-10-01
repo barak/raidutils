@@ -1,3 +1,9 @@
+raidutils (0.0.6-23) UNRELEASED; urgency=medium
+
+  * d/changelog: Remove trailing whitespaces
+
+ -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:09:52 +0200
+
 raidutils (0.0.6-22) unstable; urgency=medium
 
   * bump debian standards
@@ -141,7 +147,7 @@ raidutils (0.0.6-5) unstable; urgency=low
   * Get rid of "packed" warnings by hacking include/get_info.h; although
     thanks are due to Nathan Stratton Treadway for looking into the issue,
     responsibility for this fix is mine alone ... remember: NO WARRENTY!!!
-  
+
  -- Barak A. Pearlmutter <bap@debian.org>  Sun,  3 Feb 2008 16:09:08 +0000
 
 raidutils (0.0.6-4) unstable; urgency=low
@@ -158,7 +164,7 @@ raidutils (0.0.6-3.2) unstable; urgency=low
   * debian/rules: Fix bashism. (Closes: #459161)
 
  -- Marc 'HE' Brockschmidt <he@debian.org>  Tue, 22 Jan 2008 21:56:15 +0100
-  
+
 raidutils (0.0.6-3.1) unstable; urgency=high
 
   * Non-maintainer upload.
