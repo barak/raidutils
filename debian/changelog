@@ -1,4 +1,4 @@
-raidutils (0.0.6-23) UNRELEASED; urgency=medium
+raidutils (0.0.6-23) unstable; urgency=medium
 
   [ Ondřej Nový ]
   * d/changelog: Remove trailing whitespaces
@@ -6,8 +6,10 @@ raidutils (0.0.6-23) UNRELEASED; urgency=medium
   [ Barak A. Pearlmutter ]
   * Bump debhelper from old 10 to 12.
   * Set debhelper-compat version in Build-Depends.
+  * Bump policy
+  * remove obsolete build dependency (closes: #959461)
 
- -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:09:52 +0200
+ -- Barak A. Pearlmutter <bap@debian.org>  Sat, 02 May 2020 17:01:13 +0100
 
 raidutils (0.0.6-22) unstable; urgency=medium
 
