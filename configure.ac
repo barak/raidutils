@@ -1,8 +1,8 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.67])
-AC_INIT([I2O RAID Utilities],[0.0.6],,[i2o-raidutils],[http://i2o.shadowconnect.com])
+AC_PREREQ([2.69])
+AC_INIT([I2O RAID Utilities],[0.0.6],[],[i2o-raidutils],[http://i2o.shadowconnect.com])
 AC_CONFIG_SRCDIR([raidutil/raidutil.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
