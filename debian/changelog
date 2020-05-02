@@ -5,6 +5,7 @@ raidutils (0.0.6-23) UNRELEASED; urgency=medium
 
   [ Barak A. Pearlmutter ]
   * Bump debhelper from old 10 to 12.
+  * Set debhelper-compat version in Build-Depends.
 
  -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:09:52 +0200
 
