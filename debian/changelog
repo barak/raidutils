@@ -1,6 +1,10 @@
 raidutils (0.0.6-23) UNRELEASED; urgency=medium
 
+  [ Ondřej Nový ]
   * d/changelog: Remove trailing whitespaces
+
+  [ Barak A. Pearlmutter ]
+  * Bump debhelper from old 10 to 12.
 
  -- Ondřej Nový <onovy@debian.org>  Mon, 01 Oct 2018 10:09:52 +0200
 
