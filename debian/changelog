@@ -1,6 +1,7 @@
 raidutils (0.0.6-24) UNRELEASED; urgency=medium
 
   * Bump debhelper from old 12 to 13.
+  * Update watch file format version to 4.
 
  -- Barak A. Pearlmutter <bap@debian.org>  Tue, 04 May 2021 23:56:23 -0000
 
