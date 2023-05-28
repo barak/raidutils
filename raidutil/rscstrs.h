@@ -492,7 +492,7 @@ char * EventStrings[] =
  	"This is an invalid command or option to a command: ", // STR_PARSE_ERR_INVALID_CMD_OR_OPTION_TO_CMD
    "Must specify an image file", // STR_PARSE_ERR_MUST_SUPPLY_IMAGE
    "Must specify a file name", // STR_PARSE_ERR_MUST_SUPPLY_FILE_NAME
-   "Must specify a replacment string", // STR_PARSE_ERR_MUST_SUPPLY_ASCII_DATA
+   "Must specify a replacement string", // STR_PARSE_ERR_MUST_SUPPLY_ASCII_DATA
    "Replacement string too long", // STR_PARSE_ERR_ASCII_DATA_TOO_LONG
    "Parser error", // STR_CMD_PARSER_ERROR
    "Invalid list type", // STR_CMD_ERR_INVALID_LIST_TYPE
