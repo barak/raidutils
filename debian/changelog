@@ -4,8 +4,12 @@ raidutils (0.0.6-24) unstable; urgency=medium
   * Update watch file format version to 4.
   * Update standards version to 4.6.2, no changes needed.
   * Populate debian/not-installed
+  * Merge upstream tweaks
+  * This package is being removed from debian due to bit rot.
+    --- WE WHO ARE ABOUT TO DIE SALUTE YOU! ---
+    Enjoy this code, oh brave bit spelunker from the future.
 
- -- Barak A. Pearlmutter <bap@debian.org>  Sun, 28 May 2023 09:31:34 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 28 May 2023 09:47:33 +0100
 
 raidutils (0.0.6-23) unstable; urgency=medium
 
