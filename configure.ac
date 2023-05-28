@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.71])
 AC_INIT([I2O RAID Utilities],[0.0.6],[],[i2o-raidutils],[http://i2o.shadowconnect.com])
 AC_CONFIG_SRCDIR([raidutil/raidutil.cpp])
 AC_CONFIG_HEADERS([config.h])
@@ -29,7 +29,7 @@ AC_LANG([C])
 # Checks for header files.
 AC_LANG([C])
 AC_HEADER_DIRENT
-AC_HEADER_STDC
+
 AC_HEADER_SYS_WAIT
 AC_CHECK_HEADERS([fcntl.h malloc.h memory.h stdlib.h string.h strings.h sys/file.h sys/ioctl.h sys/systeminfo.h unistd.h values.h inttypes.h])
 AC_LANG([C++])
@@ -43,7 +43,6 @@ AC_C_CONST
 AC_C_INLINE
 AC_TYPE_PID_T
 AC_TYPE_SIZE_T
-AC_HEADER_TIME
 AC_STRUCT_TM
 AC_C_VOLATILE
 
